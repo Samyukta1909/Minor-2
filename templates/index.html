@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eagle's Eye</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    <link rel="stylesheet" href="./../static/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <!-- <link rel="stylesheet" href="./../static/css/style.css"> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,9 +27,10 @@
     </div>
 
     <center>
-        <form class="searchurl">
-            <input type="text" placeholder="Search URL" class="searchtext">
-            <button class="search-button">Search</button>
+        <form class="searchurl" action="/" method="post">
+            <!-- <form class="searchurl" action="url"> -->
+            <input type="text" placeholder="Search URL" class="searchtext" name="urlvalue" required>
+            <button class="search-button" id="search-button">Search</button>
         </form>
     </center>
 
