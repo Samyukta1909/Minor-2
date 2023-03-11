@@ -5,7 +5,7 @@ app = Flask(__name__)
 def index():
     if request.form:
         print(request.form.get("urlvalue"))
-
+        # print('test')
     return render_template('index.html')
 
 
