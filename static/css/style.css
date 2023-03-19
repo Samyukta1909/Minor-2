@@ -85,15 +85,18 @@ body {
     display: block;
 }
 
-#div5 {
-    height: 80vh;
-}
-
+#div5,
 #div6 {
     height: 80vh;
 }
 
+
+/* #div6 {
+    height: 80vh;
+} */
+
 .row-div-col {
+    overflow: hidden;
     width: 100%;
     margin-top: 3vh;
     background-color: white;
@@ -116,4 +119,50 @@ body {
     margin-top: 2vh;
     border-radius: 14px;
     height: 25vh;
+}
+
+.sensitive-urls {
+    height: 90%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+
+.sensitive-urls hr {
+    width: 85%;
+}
+
+.sensitive-urls ul {
+    padding: 0;
+}
+
+.sensitive-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+
+.sensitive-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.sensitive-urls::-webkit-scrollbar-track {
+    background: red;
+    border-radius: 15px;
+}
+
+.sensitive-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
 }
