@@ -8,9 +8,11 @@ def index():
     if request.form:
         # print(request.form.get("urlvalue"))
         target = request.form.get("urlvalue")
+        print(target)
         hidFiles = hiddenFiles(target)
-    return render_template('index.html',hiddenFiles=hidFiles)
-
+        return render_template('index.html',hiddenFiles=hidFiles)
+    else:
+        return render_template('index.html')
 
 
 
