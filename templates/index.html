@@ -38,7 +38,19 @@
 
     <div class="row-container">
         <div class="row-div">Div1</div>
-        <div class="row-div">Div2</div>
+        
+        <div class="row-div">
+            Whois
+            <div class="domain-urls">
+
+                <ul>
+                    {%for i in (WHOis)%}
+                    <li>{{i}}</li>
+                    <hr> {%endfor%}
+                </ul>
+            </div>
+        </div>
+
         <div class="row-div">Div3</div>
     </div>
 
@@ -50,6 +62,8 @@
                 Sensitive URLs
                 <div class="sensitive-urls">
 
+                    
+                    <ul>
                     <ul class="sensitive-urls-ul">
                         <!-- <li>List1</li>
                         {%for i in (hiddenFiles)%}
@@ -61,7 +75,26 @@
                 </div>
 
             </div>
-            <div class="row-div-col" id="row-div-col3">div-col3</div>
+            <div class="row-div-col" id="row-div-col3">
+                Records
+                <div class="record-urls">
+
+                    <ul>
+                        {%for i in (record)%}
+                        <li>{{i}}</li>
+                         {%endfor%}
+                        <hr>
+                         {%for i in (name)%}
+                        <li>{{i}}</li>
+                         {%endfor%}
+
+                    </ul>
+
+                    
+
+                </div>
+
+            </div>
         </div>
         <div class="row-div" id="div5">Div5</div>
         <div class="row-div" id="div6">Div6</div>

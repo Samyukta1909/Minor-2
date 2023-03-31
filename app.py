@@ -1,5 +1,8 @@
 from flask import Flask,render_template,request,jsonify
 from sensitiveFiles import hiddenFiles
+from domain import WHOis
+from records import record
+import json
 import json,threading
 from flask_socketio import SocketIO
 
@@ -12,6 +15,14 @@ def index():
     if request.form:
         # print(request.form.get("urlvalue"))
         target = request.form.get("urlvalue")
+        
+        domainFile =WHOis(target)
+        recordFile,recordFile1=record(target)
+        return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1)
+    
+        # hidFiles = hiddenFiles(target)
+        # return render_template('index.html',hiddenFiles=hidFiles)
+
         print(target)
         # hidFiles = hiddenFiles(target)
         threading.Thread(target=hiddenFiles,args=(target,)).start()
@@ -19,6 +30,10 @@ def index():
         return render_template('index.html')
     else:
         return render_template('index.html')
+    
+    
+    
+        
 
 @socketio.on('message')
 def establishConnect(msg):
