@@ -85,7 +85,7 @@ body {
     display: block;
 }
 
-#div5,
+#div5
 #div6 {
     height: 80vh;
 }
@@ -151,6 +151,7 @@ body {
     text-decoration: none;
 }
 
+
 .sensitive-urls::-webkit-scrollbar {
     height: 0px;
     width: 10px;
@@ -163,6 +164,105 @@ body {
 }
 
 .sensitive-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+.domain-urls {
+    height: 90%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+
+.domain-urls hr {
+    width: 85%;
+}
+
+.domain-urls ul {
+    padding: 0;
+}
+
+.domain-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+   text-align: left;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    margin-right: 50%;
+    margin-left: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+.domain-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.domain-urls::-webkit-scrollbar-track {
+    background: red;
+    border-radius: 15px;
+}
+
+.domain-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+.row-div-col{
+    overflow: hidden;
+}
+
+.record-urls {
+    height: 90%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+
+.record-urls hr {
+    width: 85%;
+}
+
+.record-urls ul {
+    padding: 0;
+}
+
+.record-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+
+
+.record-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.record-urls::-webkit-scrollbar-track {
+    background: red;
+    border-radius: 15px;
+}
+
+.record-urls::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 15px;
 }
