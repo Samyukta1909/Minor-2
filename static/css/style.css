@@ -95,6 +95,10 @@ body {
     height: 80vh;
 } */
 
+
+.row-div{
+    overflow: hidden;
+}
 .row-div-col {
     overflow: hidden;
     width: 100%;
@@ -120,6 +124,7 @@ body {
     border-radius: 14px;
     height: 25vh;
 }
+
 
 .sensitive-urls {
     height: 90%;
@@ -163,6 +168,99 @@ body {
 }
 
 .sensitive-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+.subdomain-urls {
+    height: 100%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /*overflow: hidden;*?
+    /* overflow-x: hidden; */
+}
+
+.subdomain-urls hr {
+    width: 85%;
+}
+
+.subdomain-urls ul {
+    padding: 0;
+}
+
+.subdomain-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+
+.subdomain-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.subdomain-urls::-webkit-scrollbar-track {
+    background: red;
+    border-radius: 15px;
+}
+
+.subdomain-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+.endpoint-urls {
+    height: 90%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+
+.endpoint-urls hr {
+    width: 85%;
+}
+
+.endpoint-urls ul {
+    padding: 0;
+}
+
+.endpoint-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+
+.endpoint-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.endpoint-urls::-webkit-scrollbar-track {
+    background: red;
+    border-radius: 15px;
+}
+
+.endpoint-urls::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 15px;
 }

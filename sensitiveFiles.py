@@ -1,5 +1,6 @@
 import subprocess,re
 
+
 def hiddenFiles(targetName):
     result = subprocess.check_output(['waybackurls',targetName,'|','uniq'])
     hidFilesList = []
