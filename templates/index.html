@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -36,7 +38,19 @@
 
     <div class="row-container">
         <div class="row-div">Div1</div>
-        <div class="row-div">Div2</div>
+        
+        <div class="row-div">
+            Whois
+            <div class="domain-urls">
+
+                <ul>
+                    {%for i in (WHOis)%}
+                    <li>{{i}}</li>
+                    <hr> {%endfor%}
+                </ul>
+            </div>
+        </div>
+
         <div class="row-div">Div3</div>
     </div>
 
@@ -48,33 +62,78 @@
                 Sensitive URLs
                 <div class="sensitive-urls">
 
+                    
                     <ul>
+                    <ul class="sensitive-urls-ul">
+                        <!-- <li>List1</li>
                         {%for i in (hiddenFiles)%}
                         <li>{{i}}</li>
-                        <hr> {%endfor%}
+                        <hr> {%endfor%} -->
 
-                        <!-- <script>
-                            //for (let i = 0; i < 20; i++) {
-                            for (let i = 0; i < 20; i++) {
-                                let list = document.createElement('li');
-                                // list.innerText = "Url  " + i;
-                                list.innerText = "Lorem Ipsum is simply dummy text of the printing and typesetting  " + i;
-                                document.querySelector('.sensitive-urls').appendChild(list);
-                                document.querySelector('.sensitive-urls').appendChild(document.createElement('hr'));
-                            }
-                        </script> -->
 
                     </ul>
                 </div>
 
             </div>
-            <div class="row-div-col" id="row-div-col3">div-col3</div>
+            <div class="row-div-col" id="row-div-col3">
+                Records
+                <div class="record-urls">
+
+                    <ul>
+                        {%for i in (record)%}
+                        <li>{{i}}</li>
+                         {%endfor%}
+                        <hr>
+                         {%for i in (name)%}
+                        <li>{{i}}</li>
+                         {%endfor%}
+
+                    </ul>
+
+                    
+
+                </div>
+
+            </div>
         </div>
         <div class="row-div" id="div5">Div5</div>
         <div class="row-div" id="div6">Div6</div>
+
     </div>
 
     <br>
+
+
+
+    <script>
+        socket = io();
+        socket.connect('http://127.0.0.1:5000/');
+
+        socket.on('connect', function() {
+            socket.send('Established')
+        })
+
+        socket.on('sensitiveUrls', function(data) {
+            console.log("Urls recieved")
+                // console.log(data['urls'])
+            renderUrls(data['urls'])
+                // console.log(data['packets'])
+        })
+
+        const innerHtmlUl = document.querySelector(".sensitive-urls-ul");
+
+        function renderUrls(urls) {
+            innerHtmlUl.innerHTML = "";
+
+            urls.forEach(url => {
+                innerHtmlUl.innerHTML += `<li>${url}</li><hr>`
+            });
+
+        }
+    </script>
+
+
+
 </body>
 
 </html>
