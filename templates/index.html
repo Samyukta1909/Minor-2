@@ -38,25 +38,31 @@
 
     <div class="row-container">
 
-        
-
-        <div class="row-div">Div1</div>
-        
-
         <div class="row-div">
             Subdomains
             <div class="subdomain-urls">
 
                 <ul>
                     <ul class="subdomain-urls-ul">
-                    <!--{%for i in (subdomain)%}
+                        <!--{%for i in (subdomain)%}
                     <li>{{i}}</li>
                     <hr> {%endfor%}-->
-                </ul>
+                    </ul>
                 </ul>
             </div>
         </div>
 
+        <div class="row-div">
+            Whois
+            <div class="domain-urls">
+
+                <ul>
+                    {%for i in (WHOis)%}
+                    <li>{{i}}</li>
+                    <hr> {%endfor%}
+                </ul>
+            </div>
+        </div>
 
         <div class="row-div">
             Security News
@@ -64,17 +70,14 @@
 
                 <ul>
                     {%for i in (Headlines)%}
-                    <li><a href="{{i[1]}}" target="_blank" >{{i[0]}} </a>
+                    <li><a href="{{i[1]}}" target="_blank">{{i[0]}} </a>
                     </li>
                     <hr> {%endfor%}
                 </ul>
             </div>
-
-
         </div>
 
-        <div class="row-div">Div2</div>
-        <div class="row-div">Div3</div>
+        <!-- <div class="row-div">Div3</div> -->
 
     </div>
 
@@ -86,10 +89,10 @@
                 <div class="endpoint-urls">
                     <ul>
                         <ul class="endpoint-urls-ul">
-                        <!--{%for i in (endpoint)%}
+                            <!--{%for i in (endpoint)%}
                         <li>{{i}}</li>
                         <hr> {%endfor%}-->
-                    </ul>
+                        </ul>
                     </ul>
                 </div>
             </div>
@@ -97,16 +100,16 @@
                 Sensitive URLs
                 <div class="sensitive-urls">
 
-                    
+
                     <ul>
-                    <ul class="sensitive-urls-ul">
-                        <!-- <li>List1</li>
+                        <ul class="sensitive-urls-ul">
+                            <!-- <li>List1</li>
                         {%for i in (hiddenFiles)%}
                         <li>{{i}}</li>
                         <hr> {%endfor%} -->
 
 
-                    </ul>
+                        </ul>
                 </div>
 
             </div>
@@ -117,21 +120,20 @@
                     <ul>
                         {%for i in (record)%}
                         <li>{{i}}</li>
-                         {%endfor%}
-                        <hr>
-                         {%for i in (name)%}
+                        {%endfor%}
+                        <hr> {%for i in (name)%}
                         <li>{{i}}</li>
-                         {%endfor%}
+                        {%endfor%}
 
                     </ul>
 
-                    
+
 
                 </div>
 
             </div>
         </div>
-        
+
         <div class="row-div" id="div5">DIV 5</div>
         <div class="row-div" id="div6">Div6</div>
 
@@ -176,8 +178,9 @@
 
         const innerHtmlUl2 = document.querySelector(".endpoint-urls-ul");
         innerHtmlUl2.innerHTML = "";
+
         function renderendpointUrls(urls) {
-            
+
             innerHtmlUl2.innerHTML += `<li>${urls}</li><hr>`
 
             // urls.forEach(url => {
@@ -186,7 +189,7 @@
             //});
 
         }
-        
+
         socket.on('subdomainUrls', function(data) {
             console.log("Urls recieved")
                 // console.log(data['urls'])
@@ -195,16 +198,15 @@
         })
         const innerHtmlUl3 = document.querySelector(".subdomain-urls-ul");
         innerHtmlUl3.innerHTML = "";
+
         function rendersubdomainUrls(urls) {
-      
+
             innerHtmlUl3.innerHTML += `<li>${urls}</li><hr>`
-            //urls.forEach(url => {
-            //    innerHtmlUl3.innerHTML += `<li>${url}</li><hr>`
-            //});
+                //urls.forEach(url => {
+                //    innerHtmlUl3.innerHTML += `<li>${url}</li><hr>`
+                //});
 
         }
-
-
     </script>
 
 

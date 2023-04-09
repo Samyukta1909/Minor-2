@@ -8,7 +8,9 @@ def record(domainname):
             for rec in a_name:
                 a=rec.to_text()
                 recordList.append(a)
-        except dns.resolver.NoAnswer:
+        # except dns.resolver.NoAnswer:
+        except Exception as e:
+            print("Exception in: ",e)
             m="No record found"
             recordList.append(m)
          
