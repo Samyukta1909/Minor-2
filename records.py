@@ -10,6 +10,7 @@ def record(domainname):
                 recordList.append(a)
         # except dns.resolver.NoAnswer:
         except Exception as e:
+            pass
             print("Exception in: ",e)
             m="No record found"
             recordList.append(m)
@@ -22,6 +23,7 @@ def record(domainname):
                 c=recd.to_text()
                 recordList1.append(c)
         except dns.resolver.NoAnswer:
+            pass
             d="No record found"
             recordList1.append(d)
   
