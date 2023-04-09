@@ -8,6 +8,7 @@ body {
 .nav {
     height: 7vh;
     width: 100%;
+    
     background-color: aqua;
     display: flex;
     align-items: center;
@@ -27,6 +28,7 @@ body {
 .right-nav-content {
     margin-right: 1vw;
     display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     justify-content: space-around;
     /* background-color: yellow; */
     width: 25%;
@@ -38,7 +40,7 @@ body {
 }
 
 .searchurl {
-    margin-top: 1vh;
+    margin-top: 2vh;
     display: flex;
     width: 25%;
 }
@@ -71,9 +73,11 @@ body {
 }
 
 .row-container .row-div {
-    border-radius: 15px;
+    border-radius: 30px;
     text-align: center;
     background-color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: larger;
     opacity: 0.4;
     height: 50vh;
     width: 25%;
@@ -85,16 +89,21 @@ body {
     display: block;
 }
 
-#div5,
+#div5
 #div6 {
-    height: 80vh;
+    height: 180vh;
 }
+
 
 
 /* #div6 {
     height: 80vh;
 } */
 
+
+.row-div{
+    overflow: hidden;
+}
 .row-div-col {
     overflow: hidden;
     width: 100%;
@@ -120,6 +129,7 @@ body {
     border-radius: 14px;
     height: 25vh;
 }
+
 
 .sensitive-urls {
     height: 90%;
@@ -151,6 +161,7 @@ body {
     text-decoration: none;
 }
 
+
 .sensitive-urls::-webkit-scrollbar {
     height: 0px;
     width: 10px;
@@ -163,6 +174,250 @@ body {
 }
 
 .sensitive-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+.subdomain-urls {
+    height: 100%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /*overflow: hidden;*?
+    /* overflow-x: hidden; */
+}
+
+.subdomain-urls hr {
+    width: 85%;
+}
+
+.subdomain-urls ul {
+    padding: 0;
+}
+
+.subdomain-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+
+.subdomain-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.subdomain-urls::-webkit-scrollbar-track {
+    background: red;
+    border-radius: 15px;
+}
+
+.subdomain-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+.endpoint-urls {
+    height: 90%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+
+
+.endpoint-urls hr {
+    width: 85%;
+}
+
+.endpoint-urls ul {
+    padding: 0;
+}
+
+.endpoint-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+
+.endpoint-urls::-webkit-scrollbar{
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.endpoint-urls::-webkit-scrollbar-track{
+    background: red;
+    border-radius: 15px;
+}
+
+.endpoint-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+.domain-urls {
+    height: 90%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+.domain-urls hr {
+    width: 85%;
+}
+
+.domain-urls ul {
+    padding: 0;
+}
+
+.domain-urls li {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    word-wrap: break-word;
+   text-align: left;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    margin-right: 50%;
+    margin-left: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+.domain-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.domain-urls::-webkit-scrollbar-track {
+    background: red;
+    border-radius: 15px;
+}
+
+.domain-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+.row-div-col{
+    overflow: hidden;
+}
+
+.record-urls {
+    height: 90%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+
+.record-urls hr {
+    width: 85%;
+}
+
+.record-urls ul {
+    padding: 0;
+}
+
+.record-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.record-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.record-urls::-webkit-scrollbar-track {
+    background: red;
+    border-radius: 15px;
+}
+
+.record-urls::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+
+
+.news {
+    height: 90%;
+    /* width: 80%; */
+    /* background-color: blue; */
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+
+.news hr {
+    width: 85%;
+}
+
+.news ul {
+    padding: 0;
+}
+
+.news li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-align:center;
+    text-decoration: none;
+}
+
+
+.news::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    /* background-color: red; */
+}
+
+.news::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+    border-radius: 15px;
+}
+
+.news::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 15px;
 }
