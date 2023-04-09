@@ -8,7 +8,6 @@ body {
 .nav {
     height: 7vh;
     width: 100%;
-    
     background-color: aqua;
     display: flex;
     align-items: center;
@@ -76,7 +75,7 @@ body {
     border-radius: 30px;
     text-align: center;
     background-color: white;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: larger;
     opacity: 0.4;
     height: 50vh;
@@ -89,21 +88,19 @@ body {
     display: block;
 }
 
-#div5
-#div6 {
+#div5 #div6 {
     height: 180vh;
 }
-
 
 
 /* #div6 {
     height: 80vh;
 } */
 
-
-.row-div{
+.row-div {
     overflow: hidden;
 }
+
 .row-div-col {
     overflow: hidden;
     width: 100%;
@@ -129,7 +126,6 @@ body {
     border-radius: 14px;
     height: 25vh;
 }
-
 
 .sensitive-urls {
     height: 90%;
@@ -161,7 +157,6 @@ body {
     text-decoration: none;
 }
 
-
 .sensitive-urls::-webkit-scrollbar {
     height: 0px;
     width: 10px;
@@ -169,7 +164,7 @@ body {
 }
 
 .sensitive-urls::-webkit-scrollbar-track {
-    background: red;
+    background: black;
     border-radius: 15px;
 }
 
@@ -216,7 +211,7 @@ body {
 }
 
 .subdomain-urls::-webkit-scrollbar-track {
-    background: red;
+    background: black;
     border-radius: 15px;
 }
 
@@ -232,7 +227,6 @@ body {
     overflow: scroll;
     /* overflow-x: hidden; */
 }
-
 
 .endpoint-urls hr {
     width: 85%;
@@ -256,14 +250,14 @@ body {
     text-decoration: none;
 }
 
-.endpoint-urls::-webkit-scrollbar{
+.endpoint-urls::-webkit-scrollbar {
     height: 0px;
     width: 10px;
     /* background-color: red; */
 }
 
-.endpoint-urls::-webkit-scrollbar-track{
-    background: red;
+.endpoint-urls::-webkit-scrollbar-track {
+    background: black;
     border-radius: 15px;
 }
 
@@ -279,6 +273,7 @@ body {
     overflow: scroll;
     /* overflow-x: hidden; */
 }
+
 .domain-urls hr {
     width: 85%;
 }
@@ -291,7 +286,7 @@ body {
     font-family: 'Poppins', sans-serif;
     position: relative;
     word-wrap: break-word;
-   text-align: left;
+    text-align: left;
     /* background-color: yellow; */
     padding: 0%;
     margin: 0%;
@@ -304,6 +299,7 @@ body {
     color: black;
     text-decoration: none;
 }
+
 .domain-urls::-webkit-scrollbar {
     height: 0px;
     width: 10px;
@@ -311,7 +307,7 @@ body {
 }
 
 .domain-urls::-webkit-scrollbar-track {
-    background: red;
+    background: black;
     border-radius: 15px;
 }
 
@@ -320,7 +316,7 @@ body {
     border-radius: 15px;
 }
 
-.row-div-col{
+.row-div-col {
     overflow: hidden;
 }
 
@@ -354,8 +350,6 @@ body {
     text-decoration: none;
 }
 
-
-
 .record-urls::-webkit-scrollbar {
     height: 0px;
     width: 10px;
@@ -363,7 +357,7 @@ body {
 }
 
 .record-urls::-webkit-scrollbar-track {
-    background: red;
+    background: black;
     border-radius: 15px;
 }
 
@@ -371,8 +365,6 @@ body {
     background: #888;
     border-radius: 15px;
 }
-
-
 
 .news {
     height: 90%;
@@ -401,10 +393,12 @@ body {
     padding-right: 5vw;
     list-style-type: none;
     color: black;
-    text-align:center;
-    text-decoration: none;
+    text-align: center;
 }
 
+.news li a {
+    text-decoration: none;
+}
 
 .news::-webkit-scrollbar {
     height: 0px;

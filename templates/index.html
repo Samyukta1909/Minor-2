@@ -69,10 +69,10 @@
             <div class="news">
 
                 <ul>
-                    {%for i in (Headlines)%}
-                    <li><a href="{{i[1]}}" target="_blank">{{i[0]}} </a>
-                    </li>
-                    <hr> {%endfor%}
+                    <li>
+                        {%for i in (Headlines)%}
+                        <li><a href="{{i[1]}}" target="_blank">{{i[0]}} </a></li>
+                        <hr> {%endfor%}
                 </ul>
             </div>
         </div>
