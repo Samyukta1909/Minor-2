@@ -37,6 +37,12 @@
     </center>
 
     <div class="row-container">
+
+        
+
+        <div class="row-div">Div1</div>
+        
+
         <div class="row-div">
             Subdomains
             <div class="subdomain-urls">
@@ -50,8 +56,26 @@
                 </ul>
             </div>
         </div>
+
+
+        <div class="row-div">
+            Security News
+            <div class="news">
+
+                <ul>
+                    {%for i in (Headlines)%}
+                    <li><a href="{{i[1]}}" target="_blank" >{{i[0]}} </a>
+                    </li>
+                    <hr> {%endfor%}
+                </ul>
+            </div>
+
+
+        </div>
+
         <div class="row-div">Div2</div>
         <div class="row-div">Div3</div>
+
     </div>
 
 
@@ -107,7 +131,8 @@
 
             </div>
         </div>
-        <div class="row-div" id="div5">Div5</div>
+        
+        <div class="row-div" id="div5">DIV 5</div>
         <div class="row-div" id="div6">Div6</div>
 
     </div>

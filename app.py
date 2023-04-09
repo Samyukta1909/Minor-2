@@ -7,6 +7,7 @@ from records import record
 import json
 import json,threading
 from flask_socketio import SocketIO
+from news import headlines
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -14,7 +15,11 @@ socketio = SocketIO(app)
 
 @app.route('/', methods=["GET","POST"])
 def index():
+
+    nhead = headlines()
+
     global hidFiles, subdoms, endpoints
+
     if request.form:
         # print(request.form.get("urlvalue"))
         target = request.form.get("urlvalue")
@@ -30,7 +35,10 @@ def index():
         
         domainFile =WHOis(target)
         recordFile,recordFile1=record(target)
-        return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1)
+        # threading.Thread(target=hiddenFiles,args=(target,)).start()
+        return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1, Headlines=nhead)
+    
+
     
         # hidFiles = hiddenFiles(target)
         # return render_template('index.html',hiddenFiles=hidFiles)
@@ -40,7 +48,7 @@ def index():
         # return render_template('index.html',hiddenFiles=hidFiles)
         # return render_template('index.html')
     else:
-        return render_template('index.html')
+        return render_template('index.html',Headlines=nhead)
     
 @socketio.on('message')
 def establishConnect(msg):
