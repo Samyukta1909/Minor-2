@@ -21,32 +21,16 @@ def index():
     global hidFiles, subdoms, endpoints
 
     if request.form:
-        # print(request.form.get("urlvalue"))
         target = request.form.get("urlvalue")
-        # hidFiles = hiddenFiles(target)
-        # subdoms= subdomain(target)
-        # endpoints=endpoint(target)
-        #threading.Thread(target=hiddenFiles,args=(target,)).start()
+        # threading.Thread(target=hiddenFiles,args=(target,)).start()
         threading.Thread(target=endpoint,args=(target,)).start()
         threading.Thread(target=subdomain,args=(target,)).start()
-        # return render_template('index.html',hiddenFiles=hidFiles,subdomain=subdoms, endpoint=endpoints)
-    # else:
-    #     return render_template('index.html')
-        
         domainFile =WHOis(target)
         recordFile,recordFile1=record(target)
-        # threading.Thread(target=hiddenFiles,args=(target,)).start()
+
+        # return render_template('index.html',Headlines=nhead)
         return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1, Headlines=nhead)
-    
 
-    
-        # hidFiles = hiddenFiles(target)
-        # return render_template('index.html',hiddenFiles=hidFiles)
-
-        # print(target)
-        # hidFiles = hiddenFiles(target)
-        # return render_template('index.html',hiddenFiles=hidFiles)
-        # return render_template('index.html')
     else:
         return render_template('index.html',Headlines=nhead)
     
@@ -79,4 +63,4 @@ def subdomainUrls():
 
 if __name__=="__main__":
     # app.run(debug=True)
-    socketio.run(app)
+    socketio.run(app,debug=True)
