@@ -37,21 +37,26 @@
     </center>
 
     <div class="row-container">
+
         
 
         <div class="row-div">Div1</div>
         
+
         <div class="row-div">
-            Whois
-            <div class="domain-urls">
+            Subdomains
+            <div class="subdomain-urls">
 
                 <ul>
-                    {%for i in (WHOis)%}
+                    <ul class="subdomain-urls-ul">
+                    <!--{%for i in (subdomain)%}
                     <li>{{i}}</li>
-                    <hr> {%endfor%}
+                    <hr> {%endfor%}-->
+                </ul>
                 </ul>
             </div>
         </div>
+
 
         <div class="row-div">
             Security News
@@ -67,12 +72,27 @@
 
 
         </div>
+
+        <div class="row-div">Div2</div>
+        <div class="row-div">Div3</div>
+
     </div>
 
 
     <div class="row-container">
         <div class="row-div" id="div4">
-            <div class="row-div-col" id="row-div-col1">div-col1</div>
+            <div class="row-div-col" id="row-div-col1">
+                Endpoints
+                <div class="endpoint-urls">
+                    <ul>
+                        <ul class="endpoint-urls-ul">
+                        <!--{%for i in (endpoint)%}
+                        <li>{{i}}</li>
+                        <hr> {%endfor%}-->
+                    </ul>
+                    </ul>
+                </div>
+            </div>
             <div class="row-div-col" id="row-div-col2">
                 Sensitive URLs
                 <div class="sensitive-urls">
@@ -146,6 +166,45 @@
             });
 
         }
+
+        socket.on('endpointUrls', function(data) {
+            console.log("Endpoint Urls recieved")
+                // console.log(data['urls'])
+            renderendpointUrls(data['urls'])
+                // console.log(data['packets'])
+        })
+
+        const innerHtmlUl2 = document.querySelector(".endpoint-urls-ul");
+        innerHtmlUl2.innerHTML = "";
+        function renderendpointUrls(urls) {
+            
+            innerHtmlUl2.innerHTML += `<li>${urls}</li><hr>`
+
+            // urls.forEach(url => {
+            //     console.log(url)
+            //     innerHtmlUl2.innerHTML += `<li>${url}</li><hr>`
+            //});
+
+        }
+        
+        socket.on('subdomainUrls', function(data) {
+            console.log("Urls recieved")
+                // console.log(data['urls'])
+            rendersubdomainUrls(data['urls'])
+                // console.log(data['packets'])
+        })
+        const innerHtmlUl3 = document.querySelector(".subdomain-urls-ul");
+        innerHtmlUl3.innerHTML = "";
+        function rendersubdomainUrls(urls) {
+      
+            innerHtmlUl3.innerHTML += `<li>${urls}</li><hr>`
+            //urls.forEach(url => {
+            //    innerHtmlUl3.innerHTML += `<li>${url}</li><hr>`
+            //});
+
+        }
+
+
     </script>
 
 
