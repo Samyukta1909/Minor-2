@@ -16,23 +16,28 @@ socketio = SocketIO(app)
 @app.route('/', methods=["GET","POST"])
 def index():
 
-    nhead = headlines()
+    # nhead = headlines()
 
     global hidFiles, subdoms, endpoints
 
     if request.form:
         target = request.form.get("urlvalue")
+        # print("Target: ",target)
+        threading.Thread(target=headlines).start()
         # threading.Thread(target=hiddenFiles,args=(target,)).start()
-        threading.Thread(target=endpoint,args=(target,)).start()
-        threading.Thread(target=subdomain,args=(target,)).start()
-        domainFile =WHOis(target)
-        recordFile,recordFile1=record(target)
+        # threading.Thread(target=endpoint,args=(target,)).start()
+        # threading.Thread(target=subdomain,args=(target,)).start()
+        # domainFile =WHOis(target)
+        # recordFile,recordFile1=record(target)
 
+        return render_template('index2.html')
         # return render_template('index.html',Headlines=nhead)
-        return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1, Headlines=nhead)
+        # return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1)
 
     else:
-        return render_template('index.html',Headlines=nhead)
+        threading.Thread(target=headlines).start()
+        return render_template('index2.html')
+        # return render_template('index.html',Headlines=nhead)
     
 @socketio.on('message')
 def establishConnect(msg):
@@ -55,8 +60,15 @@ def endpointUrls():
 @app.route('/subdomainUrls',methods=['GET','POST'])
 def subdomainUrls():
      data = json.loads(request.data)['urls']
-     print(" Subdomain DATA: ",data)
+     print("Subdomain DATA: ",data)
      socketio.emit('subdomainUrls',{'urls':data})
+     return jsonify(result={"status": 200})
+
+@app.route('/news',methods=['GET','POST'])
+def news():
+     data = json.loads(request.data)['news']
+    #  print("News DATA: ",data)
+     socketio.emit('news',{'news':data})
      return jsonify(result={"status": 200})
 
 

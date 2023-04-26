@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style2.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">Eagle Eye</a>
+            </div>
+            <ul class="links">
+                <li><a class="active" href="Home">Home</a></li>
+                <li><a href="About">About</a></li>
+                <li><a href="Contact">Contact</a></li>
+            </ul>
+
+        </div>
+
+        <form method="post" action="/">
+            <div class="wrapper">
+                <div class="search_box_wrapper">
+
+                    <div class="search_box_item">
+                        <div class="search_box">
+                            <input type="text" name="urlvalue" class="search" placeholder="Search URL">
+                            <span class="icon">
+                               <ion-icon name="search-outline"></ion-icon>
+                           </span>
+                        </div>
+                        <button>Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="card_container">
+            <div class="card">
+
+
+
+                <div class="subdomain_card">
+                    Subdomains
+                </div>
+
+
+
+                <div class="endpoints_card">
+                    Endpoints
+                </div>
+
+
+
+                <div class="sensitive_card">
+                    Sensitive files
+                </div>
+
+
+                <div class="col1">
+                    <h3> Whois</h3>
+
+                </div>
+
+
+                <div class="col2">
+                    <h3>Records </h3>
+
+                </div>
+
+
+                <div class="col3">
+                    <h3>News</h3>
+                    <div class="news">
+
+                        <ul class="news-ul">
+                            {%for i in (Headlines)%}
+                            <li><a href="{{i[1]}}" target="_blank">{{i[0]}} </a></li>
+                            <hr> {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+                <span class=" divider1"></span>
+
+                <span class=" divider2"></span>
+
+            </div>
+        </div>
+
+    </header>
+
+    <script>
+        socket = io();
+        socket.connect('http://127.0.0.1:5000/');
+
+        socket.on('connect', function() {
+            socket.send('Established')
+        })
+
+        socket.on('sensitiveUrls', function(data) {
+            console.log("Urls recieved")
+                // console.log(data['urls'])
+            renderUrls(data['urls'])
+                // console.log(data['packets'])
+        })
+
+        const innerHtmlUl = document.querySelector(".sensitive-urls-ul");
+
+        function renderUrls(urls) {
+            innerHtmlUl.innerHTML = "";
+
+            urls.forEach(url => {
+                innerHtmlUl.innerHTML += `<li>${url}</li><hr>`
+            });
+
+        }
+
+        socket.on('endpointUrls', function(data) {
+            console.log("Endpoint Urls recieved")
+                // console.log(data['urls'])
+            renderendpointUrls(data['urls'])
+                // console.log(data['packets'])
+        })
+
+        const innerHtmlUl2 = document.querySelector(".endpoint-urls-ul");
+
+        //innerHtmlUl2.innerHTML = "";
+        function renderendpointUrls(urls) {
+
+            innerHtmlUl2.innerHTML += `<li>${urls}</li><hr>`
+
+
+        }
+
+        socket.on('subdomainUrls', function(data) {
+            console.log("Urls recieved")
+                // console.log(data['urls'])
+            rendersubdomainUrls(data['urls'])
+                // console.log(data['packets'])
+        })
+        const innerHtmlUl3 = document.querySelector(".subdomain-urls-ul");
+        //innerHtmlUl3.innerHTML = "";
+
+        function rendersubdomainUrls(urls) {
+
+            innerHtmlUl3.innerHTML += `<li>${urls}</li><hr>`
+                //urls.forEach(url => {
+                //    innerHtmlUl3.innerHTML += `<li>${url}</li><hr>`
+                //});
+
+        }
+
+
+        socket.on('news', function(data) {
+            // console.log(data['urls'])
+            renderUrls(data['news'])
+                // console.log(data['packets'])
+        })
+
+        const newsInnerHtmlUl = document.querySelector(".news-ul");
+
+        function renderUrls(newsList) {
+            //innerHtmlUl.innerHTML = "";
+            newsList.forEach(news => {
+                newsInnerHtmlUl.innerHTML += `<li><a href='${news[1]}' target=_blank>${news[0]}</a></li><hr>`
+            });
+
+        }
+    </script>
+
+</body>
+
+</html>

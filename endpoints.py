@@ -1,6 +1,4 @@
 import requests
-import concurrent.futures
-
 
 def endpoint(targetname):
     endpointsList=[]
