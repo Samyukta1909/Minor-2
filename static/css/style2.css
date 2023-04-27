@@ -7,56 +7,59 @@
 
 body {
     background-color: #f5ebca;
-    background-size: 100%;
+    /* background-size: 100%; */
     background-position: center;
     justify-content: center;
     align-content: center;
     overflow-x: hidden;
 }
 
-header::before {
-    content: '';
+.semi-circle {
+    height: 140vh;
+    width: 110%;
     position: absolute;
-    bottom: 0%;
-    left: 50%;
-    width: 60em;
-    height: 100em;
-    background: #2C4B30;
-    border-radius: 50%;
-    transform-origin: bottom;
-    margin-bottom: 200px;
-    transform: translateX(-50%) scale(4);
+    top: -70%;
+    left: -5%;
+    border-radius: 80%;
+    background-color: #2C4B30;
+    /* border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%; */
 }
 
 .card {
     padding-top: 3vh;
-    max-width: 1800px;
-    margin-top: 7em;
-    margin-left: 2em;
-    align-content: center;
+    width: 95%;
     height: 450px;
+    margin-left: 3vw;
+    margin-bottom: 2vh;
+    margin-top: 3vh;
+    /* max-width: 1800px; */
+    /* align-content: center; */
     /* border: 1px solid rgba(18, 2, 64, 0.18); */
     border-radius: 20px;
     background-color: #ffffff;
     /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.60); */
     box-shadow: 4px 5px 10px 5px #7a7a7a;
     backdrop-filter: blur(2px);
+    /* display: none; */
+}
+
+.header_card_container {
+    width: 100%;
+    height: auto;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-around;
 }
 
 .subdomain_card {
-    /* position: relative; */
-    padding-top: 10px;
-    max-width: 400px;
-    /* margin-top: 50px;  */
-    width: 33.33%;
-    margin-left: 100px;
+    height: 15vh;
+    width: 20vw;
+    background-color: blue;
     text-align: center;
     font-weight: bold;
-    align-content: center;
-    height: 100px;
     border: 3px solid #DDA410;
     border-radius: 20px;
-    /* border-bottom: 50svh; */
     background-color: #ffffff;
     box-shadow: 0px 15px 10px -15px #111;
     /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.60); */
@@ -64,20 +67,13 @@ header::before {
 }
 
 .endpoints_card {
-    /* position: relative; */
-    padding-top: 10px;
-    max-width: 400px;
-    font-weight: bold;
-    margin-top: -6em;
-    width: 33.33%;
-    /* margin-top: 50px;  */
-    margin-left: 700px;
+    height: 15vh;
+    width: 20vw;
+    background-color: blue;
     text-align: center;
-    align-content: center;
-    height: 100px;
+    font-weight: bold;
     border: 3px solid #DDA410;
     border-radius: 20px;
-    /* border-bottom: 50svh; */
     background-color: #ffffff;
     box-shadow: 0px 15px 10px -15px #111;
     /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.60); */
@@ -85,31 +81,32 @@ header::before {
 }
 
 .sensitive_card {
-    /* position: relative; */
-    padding-top: 10px;
-    max-width: 400px;
-    /* margin-top: 50px;  */
-    margin-top: -6em;
-    font-weight: bold;
-    width: 33.33%;
-    margin-left: 1300px;
+    height: 15vh;
+    width: 20vw;
+    background-color: blue;
     text-align: center;
-    align-content: center;
-    height: 100px;
+    font-weight: bold;
     border: 3px solid #DDA410;
     border-radius: 20px;
-    box-sizing: border-box;
-    /* border-bottom: 50svh; */
     background-color: #ffffff;
     box-shadow: 0px 15px 10px -15px #111;
     /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.60); */
     backdrop-filter: blur(2px);
 }
 
+.card_container_body {
+    height: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: red; */
+}
+
 .col1 {
     width: 33.33%;
     height: 200px;
     margin-top: 3em;
+    margin-right: 2vw;
+    margin-left: 1vw;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     display: grid;
@@ -119,6 +116,7 @@ header::before {
     padding: 0px 50px;
     overflow-y: scroll;
     overflow-x: scroll;
+    /* background-color: red; */
 }
 
 .col1::-webkit-scrollbar {
@@ -151,6 +149,7 @@ header::before {
     padding: 0px 50px;
     overflow-y: scroll;
     overflow-x: scroll;
+    /* background-color: blue; */
 }
 
 .col2::-webkit-scrollbar {
@@ -176,30 +175,40 @@ header::before {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     margin-top: 3em;
+    margin-right: 1vw;
+    margin-left: 2vw;
     float: left;
     text-align: center;
     box-sizing: border-box;
-    padding: 0px 50px;
+    /* padding: 0px 50px; */
+    /* background-color: purple; */
 }
 
 .news {
     margin-top: 0.5em;
-    text-align: left;
+    /* text-align: left; */
     height: 90%;
     /* width: 80%; */
     /* background-color: blue; */
     overflow: scroll;
-    display: grid;
-    justify-content: justify;
+    /* display: grid; */
+    justify-content: center;
+    align-items: center;
     /* overflow-x: hidden; */
 }
 
-.news hr {
-    width: 85%;
+.news-ul {
+    width: 90%;
 }
 
-.news ul {
-    padding: 0;
+.news-ul li a {
+    text-align: left;
+    width: 100%;
+    justify-content: left;
+}
+
+.news hr {
+    width: 100%;
 }
 
 .news li {
@@ -238,8 +247,8 @@ header::before {
 }
 
 .divider1 {
-    position: absolute;
-    margin-left: 620px;
+    /* position: absolute;
+    margin-left: 620px; */
     width: 3px;
     margin-top: 3em;
     height: 200px;
@@ -249,9 +258,9 @@ header::before {
 }
 
 .divider2 {
-    position: absolute;
+    /* position: absolute; */
     margin-top: 3em;
-    margin-left: 1210px;
+    /* margin-left: 1210px; */
     /* margin-top: -10em; */
     width: 3px;
     height: 200px;
@@ -271,10 +280,11 @@ a {
     font-size: 1rem;
 }
 
-header {
+
+/* header {
     position: relative;
     padding: 0 2rem;
-}
+} */
 
 .navbar {
     width: 100%;
@@ -290,7 +300,7 @@ header {
     font-size: 30px;
     font-weight: bold;
     z-index: 3;
-    margin-left: -5em;
+    margin-left: -4em;
     margin-right: 5em;
     position: relative;
 }
@@ -330,7 +340,8 @@ header {
 .wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 7em;
+    margin-top: 4em;
+    margin-bottom: 5em;
     align-items: center;
 }
 
@@ -357,7 +368,7 @@ header {
 }
 
 .icon {
-    position: absolute;
+    /* position: absolute; */
     margin-top: -1.4em;
     margin-left: 0.5em;
     color: #2C4B30;
