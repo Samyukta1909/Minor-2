@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.semi-circle {
+    height: 140vh;
+    width: 110%;
+    position: absolute;
+    top: -70%;
+    left: -5%;
+    border-radius: 80%;
+    background-color: rebeccapurple;
+    /* border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%; */
+}
