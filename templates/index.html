@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="../static/css/style2.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style3.css') }}" />
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 </head>
@@ -47,21 +47,93 @@
             <div class="card">
 
                 <div class="header_card_container">
-                    <div class="subdomain_card">
+                    <!-- <div class="subdomain_card">
                         Subdomains
+                    </div> -->
+
+                    <div class="card1">
+                        <button type="submit" class="btnsubdomain_card" onclick="openPopup1()">
+                        <h1>Subdomain</h1>
+                        </button>
+                        <div class="popupsubdomain" id="popupsubdomain">
+                            <p>hellooooooonjbzHCusdhcubscubscuduybgcuy</p>
+                            <button type="button" onclick="closePopup1()">Ok</button>
+                        </div>
                     </div>
 
+                    <script>
+                        let popup = document.getElementById("popupsubdomain");
+
+                        function openPopup1() {
+                            popup.classList.add("open-popup1");
+                        }
+
+                        function closePopup1() {
+                            popup.classList.remove("open-popup1");
+                        }
+                    </script>
+
+                    <div class="card2">
+                        <button type="submit" class="btnendpoints_card" onclick="openPopup()">
+                             <h1>Endpoints</h1>
+                        </button>
+
+                        <div class="popupendpoints" id="popupendpoints">
+                            <div class="endpoint-urls">
+                                <ul class="endpoint-urls-ul">
+                                    {%for i in (endpoint)%}
+                                    <li>{{i}}</li>
+                                    <hr> {%endfor%}
+                                </ul>
+                            </div>
+                            <button type="button" onclick="closePopup()">Ok</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        let popup2 = document.getElementById("popupendpoints");
+
+                        function openPopup() {
+                            popup2.classList.add("open-popup2");
+                        }
+
+                        function closePopup() {
+                            popup2.classList.remove("open-popup2");
+                        }
+                    </script>
 
 
-                    <div class="endpoints_card">
+                    <!-- <div class="endpoints_card">
                         Endpoints
+                    </div> -->
+
+                    <div class="card3">
+                        <button type="submit" class="btnsensitive" onclick="openPopup3()">
+                        <h1>Sensitive files</h1>
+                        </button>
+                        <div class="popupsensitive" id="popupsensitive">
+                            <p>hellooooooonjbzHCusdhcubscubscuduybgcuy</p>
+                            <button type="button" onclick="closePopup3()">Ok</button>
+                        </div>
                     </div>
 
+                    <script>
+                        let popup3 = document.getElementById("popupsensitive");
+
+                        function openPopup3() {
+                            popup3.classList.add("open-popup3");
+                        }
+
+                        function closePopup3() {
+                            popup3.classList.remove("open-popup3");
+                        }
+                    </script>
 
 
-                    <div class="sensitive_card">
+
+                    <!-- <div class="sensitive_card">
                         Sensitive files
-                    </div>
+                    </div> -->
 
                 </div>
 

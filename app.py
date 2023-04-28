@@ -25,18 +25,18 @@ def index():
         # print("Target: ",target)
         threading.Thread(target=headlines).start()
         # threading.Thread(target=hiddenFiles,args=(target,)).start()
-        # threading.Thread(target=endpoint,args=(target,)).start()
+        threading.Thread(target=endpoint,args=(target,)).start()
         # threading.Thread(target=subdomain,args=(target,)).start()
         domainFile =WHOis(target)
         recordFile,recordFile1=record(target)
 
-        return render_template('index2.html', WHOis=domainFile,record=recordFile,name=recordFile1)
+        return render_template('index.html', WHOis=domainFile,record=recordFile,name=recordFile1)
         # return render_template('index.html',Headlines=nhead)
         # return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1)
 
     else:
         threading.Thread(target=headlines).start()
-        return render_template('index2.html')
+        return render_template('index.html')
         # return render_template('index.html',Headlines=nhead)
 
 @app.route('/Contact', methods=["GET","POST"])
