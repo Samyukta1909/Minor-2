@@ -68,12 +68,34 @@
                 <div class="card_container_body">
                     <div class="col1">
                         <h3> Whois</h3>
+                        <div class="domain-urls">
+
+                            <ul>
+                                {%for i in (WHOis)%}
+                                <li>{{i}}</li>
+                                <hr> {%endfor%}
+                            </ul>
+                        </div>
                     </div>
 
                     <span class="divider1"></span>
 
                     <div class="col2">
                         <h3>Records </h3>
+                        <div class="record-urls">
+
+                            <ul>
+                                 A Records: <hr>
+                                {%for i in (record)%}
+                                <li>{{i}}</li>
+                                {%endfor%}
+                                 <br> CNAME Records: 
+                                <hr> {%for i in (name)%}
+                                <li>{{i}}</li>
+                                {%endfor%}
+
+                            </ul>
+                        </div>
                     </div>
 
                     <span class="divider2"></span>
