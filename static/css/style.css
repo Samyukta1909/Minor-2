@@ -347,6 +347,7 @@ body {
 
 .record-urls {
     height: 90%;
+    width: 100%;
     /* width: 80%; */
     /* background-color: blue; */
     overflow: scroll;
@@ -359,6 +360,7 @@ body {
 
 .record-urls ul {
     padding: 0;
+    width: 100%;
 }
 
 .record-urls li {

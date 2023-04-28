@@ -105,36 +105,72 @@ body {
     width: 33.33%;
     height: 200px;
     margin-top: 3em;
-    margin-right: 2vw;
-    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-left: 2em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    display: grid;
     float: left;
     text-align: center;
     box-sizing: border-box;
-    padding: 0px 50px;
-    overflow-y: scroll;
-    overflow-x: scroll;
+    /* padding: 0px 50px; */
     /* background-color: red; */
 }
 
-.col1::-webkit-scrollbar {
+.domain-urls {
+    margin-top: 0.5em;
+    height: 90%;
+    /* width: 80%; */
+    overflow: scroll;
+    text-align: left;
+    justify-content: left;
+}
+
+.domain-urls ul {
+    padding: 0;
+}
+
+.domain-urls li a {
+    text-align: left;
+    width: 100%;
+    justify-content: left;
+}
+
+.domain-urls hr {
+    width: 85%;
+}
+
+
+.domain-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+    text-align: left;
+}
+
+.domain-urls::-webkit-scrollbar {
     height: 0px;
     width: 10px;
     display: none;
-    /* background-color: red; */
 }
 
-.col1::-webkit-scrollbar-track {
+.domain-urls::-webkit-scrollbar-track {
     background: black;
     border-radius: 15px;
 }
 
-.col1::-webkit-scrollbar-thumb {
+.domain-urls::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 15px;
 }
+
 
 .col2 {
     width: 33.33%;
@@ -147,24 +183,50 @@ body {
     text-align: center;
     box-sizing: border-box;
     padding: 0px 50px;
-    overflow-y: scroll;
-    overflow-x: scroll;
     /* background-color: blue; */
 }
 
-.col2::-webkit-scrollbar {
+.record-urls {
+    height: 90%;
+   text-align: left;
+    overflow: scroll;
+    /* overflow-x: hidden; */
+}
+
+.record-urls hr {
+    width: 85%;
+}
+
+.record-urls ul {
+    padding: 0;
+}
+
+.record-urls li {
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    /* background-color: yellow; */
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    padding-left: 1vw;
+    padding-right: 5vw;
+    list-style-type: none;
+    color: black;
+    text-decoration: none;
+}
+
+.record-urls::-webkit-scrollbar {
     height: 0px;
     width: 10px;
     display: none;
-    /* background-color: red; */
 }
 
-.col2::-webkit-scrollbar-track {
+.record-urls::-webkit-scrollbar-track {
     background: black;
     border-radius: 15px;
 }
 
-.col2::-webkit-scrollbar-thumb {
+.record-urls::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 15px;
 }
@@ -188,13 +250,9 @@ body {
     margin-top: 0.5em;
     /* text-align: left; */
     height: 90%;
-    /* width: 80%; */
-    /* background-color: blue; */
     overflow: scroll;
-    /* display: grid; */
-    justify-content: center;
-    align-items: center;
-    /* overflow-x: hidden; */
+    justify-content: left;
+    text-align: left;
 }
 
 .news-ul {
@@ -205,6 +263,7 @@ body {
     text-align: left;
     width: 100%;
     justify-content: left;
+    margin-left: -0.7em;
 }
 
 .news hr {
@@ -288,7 +347,7 @@ a {
 
 .navbar {
     width: 100%;
-    height: 8em;
+    height: 5em;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -300,13 +359,13 @@ a {
     font-size: 30px;
     font-weight: bold;
     z-index: 3;
-    margin-left: -4em;
+    margin-left: 3em;
     margin-right: 5em;
     position: relative;
 }
 
 .navbar .links {
-    margin-left: 29%;
+    margin-left: 8%;
 }
 
 .links a {
