@@ -3,218 +3,201 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eagle's Eye</title>
+    <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
-    <link rel="stylesheet" href="./../static/css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
-
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <div class="bck-image">
-        <div class="nav">
-            <div class="left-nav-content">Eagle's Eye</div>
-            <div class="right-nav-content">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                </ul>
+    <div class="semi-circle"></div>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">Eagle Eye</a>
             </div>
+            <ul class="links">
+                <li><a class="active" href="Home">Home</a></li>
+                <li><a href="About">About</a></li>
+                <li><a href="Contact">Contact</a></li>
+            </ul>
+
         </div>
 
-        <div class="main-body-div">
-            <center>
-                <form class="searchurl" action="/" method="post">
-                    <!-- <form class="searchurl" action="url"> -->
-                    <input type="text" placeholder="Search URL" class="searchtext" name="urlvalue" required>
-                    <button class="search-button" id="search-button">Search</button>
-                </form>
-            </center>
+        <form method="post" action="/">
+            <div class="wrapper">
+                <div class="search_box_wrapper">
 
-            <div class="row-container">
-
-                <div class="row-div">
-                    Subdomains
-                    <div class="subdomain-urls">
-
-                        <ul>
-                            <ul class="subdomain-urls-ul">
-                                <!--{%for i in (subdomain)%}
-                    <li>{{i}}</li>
-                    <hr> {%endfor%}-->
-                            </ul>
-                        </ul>
+                    <div class="search_box_item">
+                        <div class="search_box">
+                            <input type="text" name="urlvalue" class="search" placeholder="Search URL">
+                            <span class="icon">
+                               <ion-icon name="search-outline"></ion-icon>
+                           </span>
+                        </div>
+                        <button>Search</button>
                     </div>
                 </div>
-
-                <div class="row-div">
-                    Whois
-                    <div class="domain-urls">
-
-                        <ul>
-
-                            {%for i in (WHOis)%}
-                            <li>{{i}}</li>
-                            <hr> {%endfor%}
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="row-div">
-                    Security News
-                    <div class="news">
-
-                        <ul>
-                            <li>
-                                {%for i in (Headlines)%}
-                                <li><a href="{{i[1]}}" target="_blank">{{i[0]}} </a></li>
-                                <hr> {%endfor%}
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- <div class="row-div">Div3</div> -->
-
             </div>
+        </form>
+
+        <div class="card_container">
+            <div class="card">
+
+                <div class="header_card_container">
+                    <div class="subdomain_card">
+                        Subdomains
+                    </div>
 
 
-            <div class="row-container">
-                <div class="row-div" id="div4">
-                    <div class="row-div-col" id="row-div-col1">
+
+                    <div class="endpoints_card">
                         Endpoints
-                        <div class="endpoint-urls">
+                    </div>
+
+
+
+                    <div class="sensitive_card">
+                        Sensitive files
+                    </div>
+
+                </div>
+
+                <div class="card_container_body">
+                    <div class="col1">
+                        <h3> Whois</h3>
+                        <div class="domain-urls">
+
                             <ul>
-                                <ul class="endpoint-urls-ul">
-                                    <!--{%for i in (endpoint)%}
-                        <li>{{i}}</li>
-                        <hr> {%endfor%}-->
-                                </ul>
+                                {%for i in (WHOis)%}
+                                <li>{{i}}</li>
+                                <hr> {%endfor%}
                             </ul>
                         </div>
                     </div>
-                    <div class="row-div-col" id="row-div-col2">
-                        Sensitive URLs
-                        <div class="sensitive-urls">
 
+                    <span class="divider1"></span>
 
-                            <ul>
-                                <ul class="sensitive-urls-ul">
-                                    <!-- <li>List1</li>
-                        {%for i in (hiddenFiles)%}
-                        <li>{{i}}</li>
-                        <hr> {%endfor%} -->
-
-
-                                </ul>
-                        </div>
-
-                    </div>
-                    <div class="row-div-col" id="row-div-col3">
-                        Records
+                    <div class="col2">
+                        <h3>Records </h3>
                         <div class="record-urls">
 
                             <ul>
-                                {%for i in (record)%}
+                                A Records:
+                                <hr> {%for i in (record)%}
                                 <li>{{i}}</li>
                                 {%endfor%}
+                                <br> CNAME Records:
                                 <hr> {%for i in (name)%}
                                 <li>{{i}}</li>
                                 {%endfor%}
 
                             </ul>
-
-
-
                         </div>
-
                     </div>
+
+                    <span class="divider2"></span>
+
+                    <div class="col3">
+                        <h3>News</h3>
+                        <div class="news">
+                            <ul class="news-ul">
+                                {%for i in (Headlines)%}
+                                <li><a href="{{i[1]}}" target="_blank">{{i[0]}} </a></li>
+                                <hr> {%endfor%}
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="row-div" id="div5">DIV 5</div>
-                <div class="row-div" id="div6">Div6</div>
+
 
             </div>
-
         </div>
-        <br>
+    </header>
 
 
+    <script>
+        socket = io();
+        socket.connect('http://127.0.0.1:5000/');
 
-        <script>
-            socket = io();
-            socket.connect('http://127.0.0.1:5000/');
+        socket.on('connect', function() {
+            socket.send('Established')
+        })
 
-            socket.on('connect', function() {
-                socket.send('Established')
-            })
+        socket.on('sensitiveUrls', function(data) {
+            console.log("Urls recieved")
+                // console.log(data['urls'])
+            renderUrls(data['urls'])
+                // console.log(data['packets'])
+        })
 
-            socket.on('sensitiveUrls', function(data) {
-                console.log("Urls recieved")
-                    // console.log(data['urls'])
-                renderUrls(data['urls'])
-                    // console.log(data['packets'])
-            })
+        const innerHtmlUl = document.querySelector(".sensitive-urls-ul");
 
-            const innerHtmlUl = document.querySelector(".sensitive-urls-ul");
+        function renderUrls(urls) {
+            innerHtmlUl.innerHTML = "";
 
-            function renderUrls(urls) {
-                innerHtmlUl.innerHTML = "";
+            urls.forEach(url => {
+                innerHtmlUl.innerHTML += `<li>${url}</li><hr>`
+            });
 
-                urls.forEach(url => {
-                    innerHtmlUl.innerHTML += `<li>${url}</li><hr>`
-                });
+        }
 
-            }
+        socket.on('endpointUrls', function(data) {
+            console.log("Endpoint Urls recieved")
+                // console.log(data['urls'])
+            renderendpointUrls(data['urls'])
+                // console.log(data['packets'])
+        })
 
-            socket.on('endpointUrls', function(data) {
-                console.log("Endpoint Urls recieved")
-                    // console.log(data['urls'])
-                renderendpointUrls(data['urls'])
-                    // console.log(data['packets'])
-            })
+        const innerHtmlUl2 = document.querySelector(".endpoint-urls-ul");
 
-            const innerHtmlUl2 = document.querySelector(".endpoint-urls-ul");
-            innerHtmlUl2.innerHTML = "";
+        //innerHtmlUl2.innerHTML = "";
+        function renderendpointUrls(urls) {
 
-            function renderendpointUrls(urls) {
+            innerHtmlUl2.innerHTML += `<li>${urls}</li><hr>`
 
-                innerHtmlUl2.innerHTML += `<li>${urls}</li><hr>`
 
-                // urls.forEach(url => {
-                //     console.log(url)
-                //     innerHtmlUl2.innerHTML += `<li>${url}</li><hr>`
+        }
+
+        socket.on('subdomainUrls', function(data) {
+            console.log("Urls recieved")
+                // console.log(data['urls'])
+            rendersubdomainUrls(data['urls'])
+                // console.log(data['packets'])
+        })
+        const innerHtmlUl3 = document.querySelector(".subdomain-urls-ul");
+        //innerHtmlUl3.innerHTML = "";
+
+        function rendersubdomainUrls(urls) {
+
+            innerHtmlUl3.innerHTML += `<li>${urls}</li><hr>`
+                //urls.forEach(url => {
+                //    innerHtmlUl3.innerHTML += `<li>${url}</li><hr>`
                 //});
 
-            }
+        }
 
-            socket.on('subdomainUrls', function(data) {
-                console.log("Urls recieved")
-                    // console.log(data['urls'])
-                rendersubdomainUrls(data['urls'])
-                    // console.log(data['packets'])
-            })
-            const innerHtmlUl3 = document.querySelector(".subdomain-urls-ul");
-            innerHtmlUl3.innerHTML = "";
 
-            function rendersubdomainUrls(urls) {
+        socket.on('news', function(data) {
+            // console.log(data['urls'])
+            renderUrls(data['news'])
+                // console.log(data['packets'])
+        })
 
-                innerHtmlUl3.innerHTML += `<li>${urls}</li><hr>`
-                    //urls.forEach(url => {
-                    //    innerHtmlUl3.innerHTML += `<li>${url}</li><hr>`
-                    //});
+        const newsInnerHtmlUl = document.querySelector(".news-ul");
 
-            }
-        </script>
+        function renderUrls(newsList) {
+            //innerHtmlUl.innerHTML = "";
+            newsList.forEach(news => {
+                newsInnerHtmlUl.innerHTML += `<li><a href='${news[1]}' target=_blank>${news[0]}</a></li><hr>`
+            });
 
-    </div>
+        }
+    </script>
 
 </body>
 
