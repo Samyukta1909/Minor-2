@@ -38,7 +38,11 @@ def index():
         threading.Thread(target=headlines).start()
         return render_template('index2.html')
         # return render_template('index.html',Headlines=nhead)
-    
+
+@app.route('/Contact', methods=["GET","POST"])
+def contact():
+   return render_template('contact.html')
+   
 @socketio.on('message')
 def establishConnect(msg):
     print("Connection: "+msg)
