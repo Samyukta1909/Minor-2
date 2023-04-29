@@ -525,9 +525,22 @@ a {
     transform: translate(-50%, -50%) scale(1);
 }
 
+.subdomain-urls {
+    overflow: scroll;
+    width: 100%;
+    height: 90%;
+}
+
+.subdomain-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    display: none;
+    /* background-color: red; */
+}
+
 .popupsubdomain button {
     padding: 5px 0px;
-    margin-top: 220px;
+    margin-top: 2vh;
     width: 60px;
     background: #2C4B30;
     box-shadow: 0px 15px 10px -15px #111;
@@ -622,16 +635,6 @@ a {
     /* background-color: red; */
 }
 
-.endpoint-urls::-webkit-scrollbar-track {
-    background: black;
-    border-radius: 15px;
-}
-
-.endpoint-urls::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 15px;
-}
-
 .btnsensitive {
     /* position: relative; */
     height: 15vh;
@@ -674,6 +677,20 @@ a {
     transition: transform 0.4s, top 0.4s;
 }
 
+.sensitive-urls {
+    /* background-color: #DDA410; */
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.sensitive-urls::-webkit-scrollbar {
+    height: 0px;
+    width: 10px;
+    display: none;
+    /* background-color: red; */
+}
+
 .open-popup3 {
     visibility: visible;
     top: 50%;
@@ -682,7 +699,7 @@ a {
 
 .popupsensitive button {
     padding: 5px 0px;
-    margin-top: 220px;
+    margin-top: 2vh;
     width: 60px;
     background: #2C4B30;
     box-shadow: 0px 15px 10px -15px #111;

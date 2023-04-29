@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style2.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style3.css') }}" />
+    <link rel="stylesheet" href="../static/css/style.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
 
     <div class="semi-circle"></div>
     <header>
@@ -19,9 +21,9 @@
                 <a href="#">Eagle Eye</a>
             </div>
             <ul class="links">
-                <li><a class="active" href="Home">Home</a></li>
+                <li><a class="active" href="#">Home</a></li>
                 <li><a href="About">About</a></li>
-                <li><a href="Contact">Contact</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
 
         </div>
@@ -56,7 +58,14 @@
                         <h1>Subdomain</h1>
                         </button>
                         <div class="popupsubdomain" id="popupsubdomain">
-                            <p>hellooooooonjbzHCusdhcubscubscuduybgcuy</p>
+                            <div class="subdomain-urls">
+                                <ul class="subdomain-urls-ul">
+                                    <!-- {%for i in (endpoint)%}
+                                    <li>{{i}}</li>
+                                    <hr> {%endfor%} -->
+
+                                </ul>
+                            </div>
                             <button type="button" onclick="closePopup1()">Ok</button>
                         </div>
                     </div>
@@ -81,9 +90,9 @@
                         <div class="popupendpoints" id="popupendpoints">
                             <div class="endpoint-urls">
                                 <ul class="endpoint-urls-ul">
-                                    {%for i in (endpoint)%}
+                                    <!-- {%for i in (endpoint)%}
                                     <li>{{i}}</li>
-                                    <hr> {%endfor%}
+                                    <hr> {%endfor%} -->
                                 </ul>
                             </div>
                             <button type="button" onclick="closePopup()">Ok</button>
@@ -112,7 +121,13 @@
                         <h1>Sensitive files</h1>
                         </button>
                         <div class="popupsensitive" id="popupsensitive">
-                            <p>hellooooooonjbzHCusdhcubscubscuduybgcuy</p>
+                            <div class="sensitive-urls">
+                                <ul class="sensitive-urls-ul">
+                                    <!-- {%for i in (endpoint)%}
+                                    <li>{{i}}</li>
+                                    <hr> {%endfor%} -->
+                                </ul>
+                            </div>
                             <button type="button" onclick="closePopup3()">Ok</button>
                         </div>
                     </div>
@@ -176,9 +191,9 @@
                         <h3>News</h3>
                         <div class="news">
                             <ul class="news-ul">
-                                {%for i in (Headlines)%}
+                                <!-- {%for i in (Headlines)%}
                                 <li><a href="{{i[1]}}" target="_blank">{{i[0]}} </a></li>
-                                <hr> {%endfor%}
+                                <hr> {%endfor%} -->
                             </ul>
                         </div>
                     </div>
@@ -201,20 +216,22 @@
         })
 
         socket.on('sensitiveUrls', function(data) {
-            console.log("Urls recieved")
-                // console.log(data['urls'])
-            renderUrls(data['urls'])
+            console.log("Sensitive Urls recieved")
+            console.log(data['urls'])
+            renderSensitiveUrls(data['urls'])
                 // console.log(data['packets'])
         })
 
         const innerHtmlUl = document.querySelector(".sensitive-urls-ul");
 
-        function renderUrls(urls) {
-            innerHtmlUl.innerHTML = "";
+        function renderSensitiveUrls(urls) {
+            //innerHtmlUl.innerHTML = "";
+            //console.log(urls)
+            innerHtmlUl.innerHTML += `<li>${urls}</li><hr>`;
 
-            urls.forEach(url => {
-                innerHtmlUl.innerHTML += `<li>${url}</li><hr>`
-            });
+            //urls.forEach(url => {
+            //    innerHtmlUl.innerHTML += `<li>${url}</li><hr>`
+            //});
 
         }
 
@@ -253,9 +270,8 @@
 
         }
 
-
         socket.on('news', function(data) {
-            // console.log(data['urls'])
+            // console.log("News loaded");
             renderUrls(data['news'])
                 // console.log(data['packets'])
         })
