@@ -26,10 +26,11 @@ def index():
     if request.form:
 
         target = request.form.get("urlvalue")
-        # TEMPLATES_AUTO_RELOAD = True
-        print("Target: ",target)
-
-
+        print("Target: ",target)    
+        # threading.Thread(target=headlines).start()
+        # threading.Thread(target=hiddenFiles,args=(target,)).start()
+        # threading.Thread(target=endpoint,args=(target,)).start()
+        # threading.Thread(target=subdomain,args=(target,)).start()
         domainFile =WHOis(target)
         recordFile,recordFile1=record(target)
 

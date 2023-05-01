@@ -713,3 +713,37 @@ a {
     border-radius: 2px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.sub_num{
+    /* padding-top: 4em; */
+    position:absolute;
+    /* margin-top: 0em; */
+    margin-left: 3.3em;
+    color: #6D8F72;
+    display: flex;
+    font-size: 40px;
+    margin-left: 3em;
+    margin-top: 0.3em;
+}
+.endpoint_num{
+    /* padding-top: 4em; */
+    position:absolute;
+    /* margin-top: 0em; */
+    margin-left: 3.3em;
+    color: #6D8F72;
+    display: flex;
+    font-size: 40px;
+    margin-left: 3em;
+    margin-top: 0.3em;
+}
+.sensitive_num{
+    /* padding-top: 4em; */
+    position:absolute;
+    /* margin-top: 0em; */
+    margin-left: 3.3em;
+    color: #6D8F72;
+    display: flex;
+    font-size: 40px;
+    margin-left: 3em;
+    margin-top: 0.3em;
+}

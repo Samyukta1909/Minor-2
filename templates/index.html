@@ -56,6 +56,7 @@
                     <div class="card1">
                         <button type="submit" class="btnsubdomain_card" onclick="openPopup1()">
                         <h1>Subdomain</h1>
+                        <p class ="sub_num">0</p>
                         </button>
                         <div class="popupsubdomain" id="popupsubdomain">
                             <div class="subdomain-urls">
@@ -85,6 +86,7 @@
                     <div class="card2">
                         <button type="submit" class="btnendpoints_card" onclick="openPopup()">
                              <h1>Endpoints</h1>
+                             <p class ="endpoint_num">0</p>
                         </button>
 
                         <div class="popupendpoints" id="popupendpoints">
@@ -119,6 +121,7 @@
                     <div class="card3">
                         <button type="submit" class="btnsensitive" onclick="openPopup3()">
                         <h1>Sensitive files</h1>
+                        <p class ="sensitive_num">0</p>
                         </button>
                         <div class="popupsensitive" id="popupsensitive">
                             <div class="sensitive-urls">
@@ -214,10 +217,11 @@
         socket.on('connect', function() {
             socket.send('Established')
         })
-
+        const innerHTMLsensitive = document.querySelector(".sensitive_num");
         socket.on('sensitiveUrls', function(data) {
             console.log("Sensitive Urls recieved")
             console.log(data['urls'])
+            innerHTMLsensitive.innerText= (parseInt(innerHTMLsensitive.innerText,10)+1).toString();
             renderSensitiveUrls(data['urls'])
                 // console.log(data['packets'])
         })
@@ -234,10 +238,11 @@
             //});
 
         }
-
+        const innerHTMLend = document.querySelector(".endpoint_num");
         socket.on('endpointUrls', function(data) {
             console.log("Endpoint Urls recieved")
                 // console.log(data['urls'])
+            innerHTMLend.innerText= (parseInt(innerHTMLend.innerText,10)+1).toString();
             renderendpointUrls(data['urls'])
                 // console.log(data['packets'])
         })
@@ -247,14 +252,15 @@
         //innerHtmlUl2.innerHTML = "";
         function renderendpointUrls(urls) {
 
-            innerHtmlUl2.innerHTML += `<li>${urls}</li><hr>`
+            innerHtmlUl2.innerHTML += `<li><a href="${urls}" target=_blank >${urls}</a></li><hr>`
 
 
         }
-
+        const innerHTMLsub = document.querySelector(".sub_num");
         socket.on('subdomainUrls', function(data) {
             console.log("Urls recieved")
                 // console.log(data['urls'])
+            innerHTMLsub.innerText= (parseInt(innerHTMLsub.innerText,10)+1).toString();
             rendersubdomainUrls(data['urls'])
                 // console.log(data['packets'])
         })
@@ -263,7 +269,7 @@
 
         function rendersubdomainUrls(urls) {
 
-            innerHtmlUl3.innerHTML += `<li>${urls}</li><hr>`
+            innerHtmlUl3.innerHTML += `<li><a href="${urls}" target=_blank >${urls}</a><li><hr>`
                 //urls.forEach(url => {
                 //    innerHtmlUl3.innerHTML += `<li>${url}</li><hr>`
                 //});
