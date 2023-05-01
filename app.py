@@ -21,12 +21,13 @@ def index():
     global hidFiles, subdoms, endpoints
 
     if request.form:
+        print("Threading Count",threading.enumerate())
         target = request.form.get("urlvalue")
-        # print("Target: ",target)
+        print("Target: ",target)    
         threading.Thread(target=headlines).start()
-        # threading.Thread(target=hiddenFiles,args=(target,)).start()
-        # threading.Thread(target=endpoint,args=(target,)).start()
-        # threading.Thread(target=subdomain,args=(target,)).start()
+        threading.Thread(target=hiddenFiles,args=(target,)).start()
+        threading.Thread(target=endpoint,args=(target,)).start()
+        threading.Thread(target=subdomain,args=(target,)).start()
         domainFile =WHOis(target)
         recordFile,recordFile1=record(target)
 
@@ -36,6 +37,8 @@ def index():
 
     else:
         threading.Thread(target=headlines).start()
+        print("Threading Count",threading.enumerate())
+
         return render_template('index2.html')
         # return render_template('index.html',Headlines=nhead)
     
