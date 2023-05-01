@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eagle's Eye</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/old_style.css') }}" />
+    <link rel="stylesheet" href="./../static/css/old_style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="bck-image">
+        <div class="nav">
+            <div class="left-nav-content">Eagle's Eye</div>
+            <div class="right-nav-content">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-body-div">
+            <center>
+                <form class="searchurl" action="/" method="post">
+                    <!-- <form class="searchurl" action="url"> -->
+                    <input type="text" placeholder="Search URL" class="searchtext" name="urlvalue" required>
+                    <button class="search-button" id="search-button">Search</button>
+                </form>
+            </center>
+
+            <div class="row-container">
+
+                <div class="row-div">
+                    Subdomains
+                    <div class="subdomain-urls">
+
+                        <ul>
+                            <ul class="subdomain-urls-ul">
+                                <!--{%for i in (subdomain)%}
+                    <li>{{i}}</li>
+                    <hr> {%endfor%}-->
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row-div">
+                    Whois
+                    <div class="domain-urls">
+
+                        <ul>
+
+                            {%for i in (WHOis)%}
+                            <li>{{i}}</li>
+                            <hr> {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row-div">
+                    Security News
+                    <div class="news">
+
+                        <ul>
+                            <li>
+                                {%for i in (Headlines)%}
+                                <li><a href="{{i[1]}}" target="_blank">{{i[0]}} </a></li>
+                                <hr> {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- <div class="row-div">Div3</div> -->
+
+            </div>
+
+
+            <div class="row-container">
+                <div class="row-div" id="div4">
+                    <div class="row-div-col" id="row-div-col1">
+                        Endpoints
+                        <div class="endpoint-urls">
+                            <ul>
+                                <ul class="endpoint-urls-ul">
+                                    <!--{%for i in (endpoint)%}
+                        <li>{{i}}</li>
+                        <hr> {%endfor%}-->
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row-div-col" id="row-div-col2">
+                        Sensitive URLs
+                        <div class="sensitive-urls">
+
+
+                            <ul>
+                                <ul class="sensitive-urls-ul">
+                                    <!-- <li>List1</li>
+                        {%for i in (hiddenFiles)%}
+                        <li>{{i}}</li>
+                        <hr> {%endfor%} -->
+
+
+                                </ul>
+                        </div>
+
+                    </div>
+                    <div class="row-div-col" id="row-div-col3">
+                        Records
+                        <div class="record-urls">
+
+                            <ul>
+                                {%for i in (record)%}
+                                <li>{{i}}</li>
+                                {%endfor%}
+                                <hr> {%for i in (name)%}
+                                <li>{{i}}</li>
+                                {%endfor%}
+
+                            </ul>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row-div" id="div5">DIV 5</div>
+                <div class="row-div" id="div6">Div6</div>
+
+            </div>
+
+        </div>
+        <br>
+
+
+
+        <script>
+            socket = io();
+            socket.connect('http://127.0.0.1:5000/');
+
+            socket.on('connect', function() {
+                socket.send('Established')
+            })
+
+            socket.on('sensitiveUrls', function(data) {
+                console.log("Urls recieved")
+                    // console.log(data['urls'])
+                renderUrls(data['urls'])
+                    // console.log(data['packets'])
+            })
+
+            const innerHtmlUl = document.querySelector(".sensitive-urls-ul");
+
+            function renderUrls(urls) {
+                innerHtmlUl.innerHTML = "";
+
+                urls.forEach(url => {
+                    innerHtmlUl.innerHTML += `<li>${url}</li><hr>`
+                });
+
+            }
+
+            socket.on('endpointUrls', function(data) {
+                console.log("Endpoint Urls recieved")
+                    // console.log(data['urls'])
+                renderendpointUrls(data['urls'])
+                    // console.log(data['packets'])
+            })
+
+            const innerHtmlUl2 = document.querySelector(".endpoint-urls-ul");
+            innerHtmlUl2.innerHTML = "";
+
+            function renderendpointUrls(urls) {
+
+                innerHtmlUl2.innerHTML += `<li>${urls}</li><hr>`
+
+                // urls.forEach(url => {
+                //     console.log(url)
+                //     innerHtmlUl2.innerHTML += `<li>${url}</li><hr>`
+                //});
+
+            }
+
+            socket.on('subdomainUrls', function(data) {
+                console.log("Urls recieved")
+                    // console.log(data['urls'])
+                rendersubdomainUrls(data['urls'])
+                    // console.log(data['packets'])
+            })
+            const innerHtmlUl3 = document.querySelector(".subdomain-urls-ul");
+            innerHtmlUl3.innerHTML = "";
+
+            function rendersubdomainUrls(urls) {
+
+                innerHtmlUl3.innerHTML += `<li>${urls}</li><hr>`
+                    //urls.forEach(url => {
+                    //    innerHtmlUl3.innerHTML += `<li>${url}</li><hr>`
+                    //});
+
+            }
+        </script>
+
+    </div>
+
+</body>
+
+</html>

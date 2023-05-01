@@ -1,6 +1,7 @@
 import requests
-import concurrent.futures
+import threading
 
+# subdomain_thread_stop_event = threading.Event()
 
 def subdomain(targetname):
     subdomainList=[]
