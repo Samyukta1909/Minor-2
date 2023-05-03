@@ -26,10 +26,11 @@ def index():
     if request.form:
 
         target = request.form.get("urlvalue")
-        # TEMPLATES_AUTO_RELOAD = True
-        print("Target: ",target)
-
-
+        print("Target: ",target)    
+        # threading.Thread(target=headlines).start()
+        # threading.Thread(target=hiddenFiles,args=(target,)).start()
+        # threading.Thread(target=endpoint,args=(target,)).start()
+        # threading.Thread(target=subdomain,args=(target,)).start()
         domainFile =WHOis(target)
         recordFile,recordFile1=record(target)
 
@@ -50,6 +51,10 @@ def index():
 @app.route('/contact',methods=["GET"])
 def contact():
    return render_template('contact.html')
+
+@app.route('/About',methods=["GET"])
+def about():
+   return render_template('about.html')
    
 @socketio.on('message')
 def establishConnect(msg):
