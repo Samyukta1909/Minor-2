@@ -51,6 +51,10 @@ def index():
 @app.route('/contact',methods=["GET"])
 def contact():
    return render_template('contact.html')
+
+@app.route('/About',methods=["GET"])
+def about():
+   return render_template('about.html')
    
 @socketio.on('message')
 def establishConnect(msg):
