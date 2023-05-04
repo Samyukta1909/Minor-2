@@ -20,21 +20,27 @@
     <header>
         <div class="navbar">
             <div class="logo-image">
-                <img src="{{url_for('static', filename='images/logo.png')}}" />
+                <img src="../static/images/logo.png">
+                <a href="#">
+                    <h2></h2>Eagle Eye</h2>
+                </a>
+                <!-- <img src="{{url_for('static', filename='images/logo.png')}}" /> -->
             </div>
-            <div class="logo">
-                <a href="#">Eagle Eye</a>
-            </div>
-            <ul class="links">
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="About">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
 
+            <div class="links">
+                <ul>
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="About">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
             <div class="tech-stack" onclick="techStackpopup()">
                 <img src="../static/images/menu-burger.png">
             </div>
         </div>
+
+
+
 
         <form method="post" action="/">
             <div class="wrapper">
