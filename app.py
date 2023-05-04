@@ -10,10 +10,12 @@ import json,threading
 from threading import active_count
 from flask_socketio import SocketIO
 from news import headlines
+from techstack import techStackFunc
 import multiprocessing,time
 from report import createreport
 from flask import send_file
 import requests
+from test import testfunc
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -30,21 +32,22 @@ def index():
     if request.form:
 
         target = request.form.get("urlvalue")
-        print("Target: ",target)    
+        print("Target: ",target)  
+
+        # domainFile =WHOis(target)
+        # recordFile,recordFile1=record(target)
+
+        # techStackFunc(target)
+
         # threading.Thread(target=headlines).start()
         # threading.Thread(target=hiddenFiles,args=(target,)).start()
         # threading.Thread(target=endpoint,args=(target,)).start()
         # threading.Thread(target=subdomain,args=(target,)).start()
-        domainFile =WHOis(target)
-        recordFile,recordFile1=record(target)
+        testfunc()
 
-        threading.Thread(target=hiddenFiles,args=(target,)).start()
-        threading.Thread(target=endpoint,args=(target,)).start()
-        threading.Thread(target=subdomain,args=(target,)).start()
-        threading.Thread(target=headlines).start()
 
-        return render_template('index.html', WHOis=domainFile,record=recordFile,name=recordFile1)
-        # return render_template('index.html')
+        # return render_template('index.html', WHOis=domainFile,record=recordFile,name=recordFile1)
+        return render_template('index.html')
         # return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1)
 
     else:
@@ -55,6 +58,10 @@ def index():
 @app.route('/contact',methods=["GET"])
 def contact():
    return render_template('contact.html')
+
+@app.route('/About',methods=["GET"])
+def about():
+   return render_template('about.html')
    
 @socketio.on('message')
 def establishConnect(msg):
@@ -63,7 +70,9 @@ def establishConnect(msg):
 
 @app.route('/senstiveUrls',methods=['GET','POST'])
 def senstiveUrls():
-    data = json.loads(request.data)['urls']
+    # data = json.loads(request.data)['urls']
+    data = json.loads(request.data)
+    print(data)
     socketio.emit('sensitiveUrls',{'urls':data})
     return jsonify(result={"status": 200})
 
@@ -94,6 +103,16 @@ def report():
     path = "myreport/EagleEyeReport.pdf"
     return send_file(path, as_attachment=True)
    
+
+@app.route('/code',methods=['GET','POST'])
+def helpfunc():
+    print("tech stack function called")
+    data = json.loads(request.data)
+    print("Techstack Data: ",data)
+    # socketio.emit('news',{'news':data})
+    return jsonify(result={"status": 200})
+
+
 
 if __name__=="__main__":
     # app.run(debug=True)
