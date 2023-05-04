@@ -1,7 +1,8 @@
 import dns.resolver
-
+recordList=[]
+recordList1=[] 
 def record(domainname):
-        recordList=[]
+        
         # recordList.append("A Records:")
         try:
             a_name=dns.resolver.resolve(domainname,'A')
@@ -15,7 +16,7 @@ def record(domainname):
             m="No record found"
             recordList.append(m)
          
-        recordList1=[]       
+        # recordList1=[]       
         # recordList1.append("CNAME Records;")    
         try:
             c_name=dns.resolver.resolve(domainname,'CNAME')

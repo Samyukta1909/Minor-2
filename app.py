@@ -12,12 +12,16 @@ from flask_socketio import SocketIO
 from news import headlines
 from techstack import techStackFunc
 import multiprocessing,time
+from report import createreport
+from flask import send_file
+import requests
 from test import testfunc
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 stop_thread = threading.Event()
+
 
 @app.route('/', methods=["GET","POST"])
 def index():
@@ -33,13 +37,13 @@ def index():
         # domainFile =WHOis(target)
         # recordFile,recordFile1=record(target)
 
-        # techStackFunc(target)
+        techStackFunc(target)
 
         # threading.Thread(target=headlines).start()
         # threading.Thread(target=hiddenFiles,args=(target,)).start()
         # threading.Thread(target=endpoint,args=(target,)).start()
         # threading.Thread(target=subdomain,args=(target,)).start()
-        testfunc()
+        # testfunc()
 
 
         # return render_template('index.html', WHOis=domainFile,record=recordFile,name=recordFile1)
@@ -93,13 +97,18 @@ def news():
     socketio.emit('news',{'news':data})
     return jsonify(result={"status": 200})
 
+@app.route('/Report',methods=['GET','POST'])
+def report():
+    createreport()
+    path = "myreport/EagleEyeReport.pdf"
+    return send_file(path, as_attachment=True)
+   
 
-@app.route('/code',methods=['GET','POST'])
+@app.route('/techstackdata',methods=['GET','POST'])
 def helpfunc():
-    print("tech stack function called")
     data = json.loads(request.data)
     print("Techstack Data: ",data)
-    # socketio.emit('news',{'news':data})
+    socketio.emit('techstackdata',{'techstack':data})
     return jsonify(result={"status": 200})
 
 
