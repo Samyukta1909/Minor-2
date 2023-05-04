@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style2.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style3.css') }}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style3.css') }}" /> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/index.js') }}" />
     <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/index.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 </head>
@@ -18,18 +20,27 @@
     <header>
         <div class="navbar">
             <div class="logo-image">
-                <img src="{{url_for('static', filename='images/logo.png')}}" />
+                <img src="../static/images/logo.png">
+                <a href="#">
+                    <h2></h2>Eagle Eye</h2>
+                </a>
+                <!-- <img src="{{url_for('static', filename='images/logo.png')}}" /> -->
             </div>
-            <div class="logo">
-                <a href="#">Eagle Eye</a>
-            </div>
-            <ul class="links">
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="About">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
 
+            <div class="links">
+                <ul>
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="About">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="tech-stack" onclick="techStackpopup()">
+                <img src="../static/images/menu-burger.png">
+            </div>
         </div>
+
+
+
 
         <form method="post" action="/">
             <div class="wrapper">
@@ -212,6 +223,24 @@
         </div>
     </header>
 
+    <!-- Tech Stack  -->
+    <div class="tech-stack-card">
+        <button onclick="techStackpopout()">&times;</button>
+        <div class="tech-stack-card-wrapper">
+            <h2>Server-Side</h2>
+            <div class="tech-wrapper">
+                <p>PHP</p>
+                <p>PHP</p>
+            </div>
+            <hr><br>
+            <h2>Client-Side</h2>
+            <div class="tech-wrapper">
+                <p>PHP2</p>
+                <p>PHP2</p>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         socket = io();
@@ -224,7 +253,7 @@
         socket.on('sensitiveUrls', function(data) {
             console.log("Sensitive Urls recieved")
             console.log(data['urls'])
-            innerHTMLsensitive.innerText= (parseInt(innerHTMLsensitive.innerText,10)+1).toString();
+            innerHTMLsensitive.innerText = (parseInt(innerHTMLsensitive.innerText, 10) + 1).toString();
             renderSensitiveUrls(data['urls'])
                 // console.log(data['packets'])
         })
@@ -245,7 +274,7 @@
         socket.on('endpointUrls', function(data) {
             console.log("Endpoint Urls recieved")
                 // console.log(data['urls'])
-            innerHTMLend.innerText= (parseInt(innerHTMLend.innerText,10)+1).toString();
+            innerHTMLend.innerText = (parseInt(innerHTMLend.innerText, 10) + 1).toString();
             renderendpointUrls(data['urls'])
                 // console.log(data['packets'])
         })
@@ -263,7 +292,7 @@
         socket.on('subdomainUrls', function(data) {
             console.log("Urls recieved")
                 // console.log(data['urls'])
-            innerHTMLsub.innerText= (parseInt(innerHTMLsub.innerText,10)+1).toString();
+            innerHTMLsub.innerText = (parseInt(innerHTMLsub.innerText, 10) + 1).toString();
             rendersubdomainUrls(data['urls'])
                 // console.log(data['packets'])
         })
