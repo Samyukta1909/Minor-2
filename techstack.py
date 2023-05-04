@@ -22,16 +22,16 @@ def techStackFunc(userUrl):
             print("Server-Side")
             for tdData in i.find('tbody').find_all('tr'):
                 # print(tdData.find('td').text)
-                # techStackDict["Server-Side"].append(tdData.find('td').text)
-                serverSideList.append(tdData.find('td').text)
-                requests.post("http://127.0.0.1:5000/techstack",json={'serverSideData':tdData.find('td').text})
+                techStackDict["Server-Side"].append(tdData.find('td').text)
+                # serverSideList.append(tdData.find('td').text)
+                # requests.post("http://127.0.0.1:5000/techstack",json={'serverSideData':tdData.find('td').text})
 
         elif (i.find(class_="section_subtitle").text.strip() == "Client-Side"):
             print("Client-Side")
             for tdData in i.find('tbody').find_all('tr'):
                 # print(tdData.find('td').text)
-                # techStackDict["Client-Side"].append(tdData.find('td').text)
-                clientSideList.append(tdData.find('td').text)
-                requests.post("http://127.0.0.1:5000/techstack",json={'clientSideData':tdData.find('td').text})
+                techStackDict["Client-Side"].append(tdData.find('td').text)
+                # clientSideList.append(tdData.find('td').text)
+                # requests.post("http://127.0.0.1:5000/techstack",json={'clientSideData':tdData.find('td').text})
 
-
+    requests.post("http://127.0.0.1:5000/techstackdata",json=json.dumps(techStackDict))
