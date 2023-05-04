@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style2.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style3.css') }}" />
-    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- <link rel="stylesheet" href="../static/css/style2.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 </head>
@@ -25,9 +25,19 @@
                 <li><a href="About">About</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
-
+    
+            <div class="report">
+                <button> <a href="/Report">Report</a></button>
+            </div>
         </div>
-
+        <!-- <div class="report"> -->
+            <!-- <button type="submit" class="btnsubdomain_card" onclick=""></button> -->
+        <!-- <form action="/Report">
+            <input type="submit" value="Click me" />
+        </form> -->
+        
+        <!-- <button> <a href="/Report">Report</a></button> -->
+    <!-- </div> -->
         <form method="post" action="/">
             <div class="wrapper">
                 <div class="search_box_wrapper">

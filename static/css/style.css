@@ -11,16 +11,16 @@ body {
     background-position: center;
     justify-content: center;
     align-content: center;
-    overflow-x: hidden;
+    overflow-x: hidden; 
 }
 
 .semi-circle {
     height: 140vh;
-    width: 110%;
+    width: 120%;
     position: absolute;
     top: -70%;
-    left: -5%;
-    border-radius: 80%;
+    left: -10%;
+    border-radius: 90%;
     background-color: #2C4B30;
     /* border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%; */
@@ -396,6 +396,33 @@ a {
     transform: scaleX(1);
 }
 
+.navbar .report{
+    margin-right: 2%;
+}
+
+.report button {
+    z-index: 5;
+    /* padding: 5px 0px;  */
+     /* margin-top: -20em;  */
+    width: 100px;
+    height: 30px;
+    background: #DDA410;
+    box-shadow: 0px 15px 10px -15px #111;
+    backdrop-filter: blur(2px);
+    color: #fff;
+    border: 2px solid #f5ebca;
+    outline: none;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    position: relative;
+    margin-left: 350px;
+
+    
+}
+
 .wrapper {
     display: flex;
     justify-content: center;
@@ -492,6 +519,7 @@ a {
     backdrop-filter: blur(2px);
     outline: none;
     cursor: pointer;
+    
 }
 
 .btnsubdomain_card h1 {
@@ -747,3 +775,5 @@ a {
     margin-left: 3em;
     margin-top: 0.3em;
 }
+
+

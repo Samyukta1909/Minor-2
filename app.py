@@ -11,11 +11,15 @@ from threading import active_count
 from flask_socketio import SocketIO
 from news import headlines
 import multiprocessing,time
+from report import createreport
+from flask import send_file
+import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 stop_thread = threading.Event()
+
 
 @app.route('/', methods=["GET","POST"])
 def index():
@@ -84,7 +88,12 @@ def news():
     socketio.emit('news',{'news':data})
     return jsonify(result={"status": 200})
 
-
+@app.route('/Report',methods=['GET','POST'])
+def report():
+    createreport()
+    path = "myreport/EagleEyeReport.pdf"
+    return send_file(path, as_attachment=True)
+   
 
 if __name__=="__main__":
     # app.run(debug=True)

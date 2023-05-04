@@ -2,9 +2,11 @@ import requests
 import threading
 
 # subdomain_thread_stop_event = threading.Event()
-
+subdomainList=[]
 def subdomain(targetname):
-    subdomainList=[]
+    # subdomainList=[]
+    str="Target Name: "+targetname
+    subdomainList.append(str)
     subdomain_count=0
     with open('static/textfile.txt') as f:
         for i in f.readlines():

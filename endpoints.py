@@ -1,7 +1,7 @@
 import requests
-
+endpointsList=[]
 def endpoint(targetname):
-    endpointsList=[]
+    # endpointsList=[]
     with open('static/endpointstestfile.txt') as f:
         for i in f.readlines():
             s="https://"+targetname+"/"+i.strip()
