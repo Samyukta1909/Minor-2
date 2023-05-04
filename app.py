@@ -37,13 +37,13 @@ def index():
         # domainFile =WHOis(target)
         # recordFile,recordFile1=record(target)
 
-        # techStackFunc(target)
+        techStackFunc(target)
 
         # threading.Thread(target=headlines).start()
         # threading.Thread(target=hiddenFiles,args=(target,)).start()
         # threading.Thread(target=endpoint,args=(target,)).start()
         # threading.Thread(target=subdomain,args=(target,)).start()
-        testfunc()
+        # testfunc()
 
 
         # return render_template('index.html', WHOis=domainFile,record=recordFile,name=recordFile1)
@@ -104,12 +104,11 @@ def report():
     return send_file(path, as_attachment=True)
    
 
-@app.route('/code',methods=['GET','POST'])
+@app.route('/techstackdata',methods=['GET','POST'])
 def helpfunc():
-    print("tech stack function called")
     data = json.loads(request.data)
     print("Techstack Data: ",data)
-    # socketio.emit('news',{'news':data})
+    socketio.emit('techstackdata',{'techstack':data})
     return jsonify(result={"status": 200})
 
 

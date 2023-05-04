@@ -343,6 +343,14 @@
             });
 
         }
+
+        socket.on('techstackdata', function(data) {
+            console.log("techstack loaded");
+            console.log(data["techstack"]);
+            // renderUrls(data)
+                // console.log(data['packets'])
+        })
+
     </script>
 
 </body>
