@@ -161,6 +161,19 @@ header {
     margin-top: 2vh;
 }
 
+.server-side-tech-wrapper {
+    display: flex;
+    /* justify-content: space-around; */
+    width: 80%;
+}
+
+.client-side-tech-wrapper{
+    display: flex;
+    background-color: rebeccapurple;
+    /* justify-content: space-around; */
+    width: 80%;
+}
+
 .wrapper {
     display: flex;
     justify-content: center;
