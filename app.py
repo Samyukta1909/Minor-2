@@ -37,9 +37,10 @@ def index():
         # domainFile =WHOis(target)
         # recordFile,recordFile1=record(target)
 
-        techStackFunc(target)
+        # techStackFunc(target)
 
-        # threading.Thread(target=headlines).start()
+        threading.Thread(target=headlines).start()
+        threading.Thread(target=techStackFunc,args=(target,)).start()
         # threading.Thread(target=hiddenFiles,args=(target,)).start()
         # threading.Thread(target=endpoint,args=(target,)).start()
         # threading.Thread(target=subdomain,args=(target,)).start()
@@ -97,6 +98,13 @@ def news():
     socketio.emit('news',{'news':data})
     return jsonify(result={"status": 200})
 
+@app.route('/techstackdata',methods=['GET','POST'])
+def helpfunc():
+    data = json.loads(request.data)
+    print("Techstack Data: ",data)
+    socketio.emit('techstackdata',{'techstack':json.loads(data)})
+    return jsonify(result={"status": 200})
+
 @app.route('/Report',methods=['GET','POST'])
 def report():
     createreport()
@@ -104,12 +112,7 @@ def report():
     return send_file(path, as_attachment=True)
    
 
-@app.route('/techstackdata',methods=['GET','POST'])
-def helpfunc():
-    data = json.loads(request.data)
-    print("Techstack Data: ",data)
-    socketio.emit('techstackdata',{'techstack':data})
-    return jsonify(result={"status": 200})
+
 
 
 

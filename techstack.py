@@ -2,9 +2,9 @@ import requests,json
 from bs4 import BeautifulSoup
 
 def techStackFunc(userUrl):
-    print("I am here")
-    requests.post("http://127.0.0.1:5000/help",json={"testurl":"test text"})
-    print("I am here too")
+    # print("I am here")
+    # requests.post("http://127.0.0.1:5000/help",json={"testurl":"test text"})
+    # print("I am here too")
     url = f"https://sitereport.netcraft.com/?url=http://{userUrl}&ajax=dcg"
     
     response = requests.get(url)
