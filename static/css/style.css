@@ -11,28 +11,11 @@ body {
     background-position: center;
     justify-content: center;
     align-content: center;
-    overflow-x: hidden;
+    overflow-x: hidden; 
     /* background-position: center; */
     /* justify-content: center; */
     /* align-content: center; */
     /* overflow-x: hidden; */
-}
-
-body::-webkit-scrollbar {
-    width: 10px;
-}
-
-body::-webkit-scrollbar-track {
-    background: #d4cbcb;
-}
-
-body::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background: #1a1818;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background: #555;
 }
 
 .semi-circle {
@@ -62,7 +45,6 @@ header {
 
 .logo-image {
     width: 100%;
-    max-width: 25vw;
     display: flex;
 }
 
@@ -79,20 +61,18 @@ header {
 
 .links {
     width: 100%;
-    max-width: 25vw;
-    height: fit-content;
+    height: 100%;
     display: flex;
-    justify-content: center;
     /* justify-content: space-evenly; */
 }
 
-.links li {
+.links a {
     position: relative;
     font-size: 1.1em;
     color: white;
     text-decoration: none;
     font-weight: 500;
-    /* margin-left: 30px; */
+    margin-left: 30px;
 }
 
 .links a::after {
@@ -114,38 +94,11 @@ header {
     transform: scaleX(1);
 }
 
-.right-navbar-section {
-    /* background-color: orange; */
-    height: 5vh;
-    width: 50%;
-    display: flex;
-    margin-right: 2vw;
-    justify-content: flex-end;
-    align-items: center;
-}
-
 .tech-stack {
-    height: 100%;
-    margin-right: 2vw;
-    cursor: pointer;
-    /* background-color: rebeccapurple; */
-}
-
-.tech-stack img {
-    height: 100%;
-    /* background-color: black; */
-}
-
-table {
     width: 100%;
-}
-
-td {
-    text-align: center;
-    padding: 10px;
-    /* background-color: red; */
-    /* border: solid 1px; */
-    border-collapse: collapse;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2vw;
 }
 
 .tech-stack-card {
@@ -554,10 +507,9 @@ a {
     position: relative;
 }
 
-
-/* .navbar .links {
+.navbar .links {
     margin-left: 8%;
-} */
+}
 
 .links a {
     position: relative;
@@ -587,14 +539,14 @@ a {
     transform: scaleX(1);
 }
 
-.report {
-    /* background-color: royalblue; */
+.navbar .report{
     margin-right: 2%;
 }
 
 .report button {
+    z-index: 5;
     /* padding: 5px 0px;  */
-    /* margin-top: -20em;  */
+     /* margin-top: -20em;  */
     width: 100px;
     height: 30px;
     background: #DDA410;
@@ -609,7 +561,9 @@ a {
     border-radius: 10px;
     /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
     position: relative;
-    /* margin-left: 350px; */
+    margin-left: 350px;
+
+    
 }
 
 .wrapper {
@@ -708,6 +662,7 @@ a {
     backdrop-filter: blur(2px);
     outline: none;
     cursor: pointer;
+    
 }
 
 .btnsubdomain_card h1 {
@@ -968,3 +923,5 @@ a {
 
 
 /* -------------------------- */
+
+

@@ -8,24 +8,24 @@ from sensitiveFiles import hidFilesList
 
 
 def header(self):
-    # Logo
-    self.image('static/images/logo.png', 10, 8, 33)
-    # Arial bold 15
-    self.set_font('Arial', 'B', 15)
-    # Move to the right
-    
-    # Title
-    self.ln(4)
-    self.cell(33)
-    self.cell(0, 10, 'Eagle Eye Report', 1, 2, 'C')
-    # Line break
-    self.ln(2)
+        # Logo
+        self.image('static/images/logo.png', 10, 8, 33)
+        # Arial bold 15
+        self.set_font('Arial', 'B', 15)
+        # Move to the right
+       
+        # Title
+        self.ln(4)
+        self.cell(33)
+        self.cell(0, 10, 'Eagle Eye Report', 1, 2, 'C')
+        # Line break
+        self.ln(2)
 
 def targetname(self):
-    self.set_font('Arial', 'B', 13)
-    self.cell(2)
-    self.cell(0, 10, subdomainList[0], 0, 0, 'C')
-    self.ln(18)
+     self.set_font('Arial', 'B', 13)
+     self.cell(2)
+     self.cell(0, 10, subdomainList[0], 0, 0, 'C')
+     self.ln(18)
 
   
 def arecord(self):
@@ -65,6 +65,8 @@ def sensitivetitle(self):
     self.ln(10)
 
 def createreport():
+
+    
     print("record list: ",recordList)
     fpdf = FPDF()
     
