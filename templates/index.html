@@ -262,8 +262,9 @@
             <hr><br>
             <h2>Client-Side</h2>
             <div class="tech-wrapper">
-                <p>PHP2</p>
-                <p>PHP2</p>
+                <div class="client-side-tech-wrapper">
+
+                </div>
             </div>
         </div>
     </div>
@@ -335,7 +336,7 @@
         }
 
         socket.on('news', function(data) {
-            // console.log("News loaded");
+            console.log("News loaded");
             renderUrls(data['news'])
                 // console.log(data['packets'])
         })
@@ -351,6 +352,20 @@
         }
 
         socket.on('techstackdata', function(data) {
+            // console.log("techstack loaded");
+            // console.log(data["techstack"]["Server-Side"]);
+
+            for (i = 0; i < (data["techstack"]["Server-Side"]).length; i++) {
+                console.log(data["techstack"]["Server-Side"][i])
+                document.querySelector(".server-side-tech-wrapper").innerHTML += `<p>${data["techstack"]["Server-Side"][i]}</p>`
+            }
+
+            for (i = 0; i < (data["techstack"]["Client-Side"]).length; i++) {
+                console.log(data["techstack"]["Client-Side"][i]);
+                document.querySelector(".client-side-tech-wrapper").innerHTML += `<p>${data["techstack"]["Client-Side"][i]}</p>`
+            }
+            // renderUrls(data)
+            // console.log(data['packets'])
             console.log("techstack loaded");
             console.log(data["techstack"]);
 
