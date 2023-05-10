@@ -44,21 +44,24 @@
                     <img src="../static/images/stack.png">
                 </div>
 
+                <!-- <div class="report">
+                    <button> <a href="/Report">Report</a></button>
+                </div> -->
+
+
                 <div class="report">
+                    <!-- <button type="submit" class="btnsubdomain_card" onclick=""></button> -->
+                    <!-- <form action="/Report">
+                        <input type="submit" value="Click me" />
+                    </form> -->
+
                     <button> <a href="/Report">Report</a></button>
                 </div>
             </div>
 
         </div>
 
-        <!-- <div class="report"> -->
-        <!-- <button type="submit" class="btnsubdomain_card" onclick=""></button> -->
-        <!-- <form action="/Report">
-            <input type="submit" value="Click me" />
-        </form> -->
 
-        <!-- <button> <a href="/Report">Report</a></button> -->
-        <!-- </div> -->
 
 
         <form method="post" action="/">
@@ -248,20 +251,19 @@
         <div class="tech-stack-card-wrapper">
             <h2>Server-Side</h2>
             <div class="tech-wrapper">
-                <<<<<<< HEAD <table id="tech-stack-table">
-                    <tr>
-                        <td>
-                            <p>PHP</p>
-                        </td>
-                        <td>
-                            <p>PHP</p>
-                        </td>
-                    </tr>
+
+                <div class="server-side-tech-wrapper">
+                    <table id="tech-stack-table">
+                        <tr>
+                            <td>
+                                <p>PHP</p>
+                            </td>
+                            <td>
+                                <p>PHP</p>
+                            </td>
+                        </tr>
                     </table>
-                    =======
-                    <div class="server-side-tech-wrapper">
-                    </div>
-                    >>>>>>> upstream/master
+                </div>
             </div>
             <hr><br>
             <h2>Client-Side</h2>
@@ -273,6 +275,28 @@
         </div>
     </div>
 
+    <script>
+        const techStackList = ["Coder1", "Coder2", "Coder3"];
+        console.log(techStackList)
+        console.log(techStackList[0])
+
+        var j = 0;
+        for (i = 0; i < Math.ceil(techStackList.length / 2); i++) {
+            var row = document.querySelector("#tech-stack-table").insertRow();
+            for (k = 0; k < 2; k++) {
+                var cell1 = row.insertCell(k);
+                if (typeof techStackList[j] == "undefined") {
+                    cell1.innerHTML = ''
+                } else {
+                    cell1.innerHTML = techStackList[j];
+                }
+                j++;
+            }
+            //var cell2 = row.insertCell(1);
+            //cell2.innerHTML = techStackList[1];
+
+        }
+    </script>
     <script>
         socket = io();
         socket.connect('http://127.0.0.1:5000/');
@@ -374,8 +398,8 @@
             console.log(data["techstack"]);
 
 
-            //const techStackList = ["Coder1", "Coder2", "Coder3"];
-            const techStackList = data["techstack"];
+            //const techStackList = data["techstack"];
+            const techStackList = ["Coder1", "Coder2", "Coder3"];
             console.log(techStackList)
             console.log(techStackList[0])
 
