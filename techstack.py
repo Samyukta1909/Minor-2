@@ -3,8 +3,11 @@ from bs4 import BeautifulSoup
 
 def techStackFunc(userUrl):
     print("I am here")
-    requests.post("http://127.0.0.1:5000/help",json={"testurl":"test text"})
+    # requests.post("http://127.0.0.1:5000/help",json={"testurl":"test text"})
     print("I am here too")
+    # print("I am here")
+    # requests.post("http://127.0.0.1:5000/help",json={"testurl":"test text"})
+    # print("I am here too")
     url = f"https://sitereport.netcraft.com/?url=http://{userUrl}&ajax=dcg"
     
     response = requests.get(url)
@@ -33,5 +36,5 @@ def techStackFunc(userUrl):
                 techStackDict["Client-Side"].append(tdData.find('td').text)
                 # clientSideList.append(tdData.find('td').text)
                 # requests.post("http://127.0.0.1:5000/techstack",json={'clientSideData':tdData.find('td').text})
-
+    print(json.dumps(techStackDict))
     requests.post("http://127.0.0.1:5000/techstackdata",json=json.dumps(techStackDict))
