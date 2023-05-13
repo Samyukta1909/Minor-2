@@ -91,7 +91,7 @@
 
                     <div class="card1">
                         <button type="submit" class="btnsubdomain_card" onclick="openPopup1()">
-                        <h1>Subdomain</h1>
+                        <h1>Subdomains</h1>
                         <p class ="sub_num">0</p>
                         </button>
                         <div class="popupsubdomain" id="popupsubdomain">
@@ -253,15 +253,8 @@
             <div class="tech-wrapper">
 
                 <div class="server-side-tech-wrapper">
-                    <table id="tech-stack-table">
-                        <tr>
-                            <td>
-                                <p>PHP</p>
-                            </td>
-                            <td>
-                                <p>PHP</p>
-                            </td>
-                        </tr>
+                    <table id="server-tech-stack-table">
+                        
                     </table>
                 </div>
             </div>
@@ -269,34 +262,25 @@
             <h2>Client-Side</h2>
             <div class="tech-wrapper">
                 <div class="client-side-tech-wrapper">
-
+                    <table id="client-tech-stack-table">
+                        
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        const techStackList = ["Coder1", "Coder2", "Coder3"];
+    <!-- <script>
+        // const techStackList = ["Coder1", "Coder2", "Coder3"];
+        const techStackList = {"Client-Side":['Local Storage', 'JavaScript '],"Server-Side":['SSL ']};
+
         console.log(techStackList)
-        console.log(techStackList[0])
+        console.log(techStackList["Server-Side"].length)
+        
 
-        var j = 0;
-        for (i = 0; i < Math.ceil(techStackList.length / 2); i++) {
-            var row = document.querySelector("#tech-stack-table").insertRow();
-            for (k = 0; k < 2; k++) {
-                var cell1 = row.insertCell(k);
-                if (typeof techStackList[j] == "undefined") {
-                    cell1.innerHTML = ''
-                } else {
-                    cell1.innerHTML = techStackList[j];
-                }
-                j++;
-            }
-            //var cell2 = row.insertCell(1);
-            //cell2.innerHTML = techStackList[1];
+        
+    </script> -->
 
-        }
-    </script>
     <script>
         socket = io();
         socket.connect('http://127.0.0.1:5000/');
@@ -380,59 +364,37 @@
         }
 
         socket.on('techstackdata', function(data) {
-            // console.log("techstack loaded");
-            // console.log(data["techstack"]["Server-Side"]);
-
-            for (i = 0; i < (data["techstack"]["Server-Side"]).length; i++) {
-                console.log(data["techstack"]["Server-Side"][i])
-                document.querySelector(".server-side-tech-wrapper").innerHTML += `<p>${data["techstack"]["Server-Side"][i]}</p>`
-            }
-
-            for (i = 0; i < (data["techstack"]["Client-Side"]).length; i++) {
-                console.log(data["techstack"]["Client-Side"][i]);
-                document.querySelector(".client-side-tech-wrapper").innerHTML += `<p>${data["techstack"]["Client-Side"][i]}</p>`
-            }
-            // renderUrls(data)
-            // console.log(data['packets'])
-            console.log("techstack loaded");
-            console.log(data["techstack"]);
-
-
-            //const techStackList = data["techstack"];
-            const techStackList = ["Coder1", "Coder2", "Coder3"];
+            techStackList =data["techstack"]
             console.log(techStackList)
-            console.log(techStackList[0])
-
             var j = 0;
-            for (i = 0; i < Math.ceil(techStackList.length / 2); i++) {
-                var row = document.querySelector("#tech-stack-table").insertRow();
-                for (k = 0; k < 2; k++) {
-                    var cell1 = row.insertCell(k);
-                    if (typeof techStackList[j] == "undefined") {
-                        cell1.innerHTML = ''
-                    } else {
-                        cell1.innerHTML = techStackList[j];
-                    }
-                    j++;
+        for (i = 0; i < Math.ceil(techStackList["Server-Side"].length / 2); i++) {
+            var row = document.querySelector("#server-tech-stack-table").insertRow();
+            for (k = 0; k < 2; k++) {
+                var cell1 = row.insertCell(k);
+                if (typeof techStackList["Server-Side"][j] == "undefined") {
+                    cell1.innerHTML = ''
+                } else {
+                    cell1.innerHTML = techStackList["Server-Side"][j];
                 }
-                //var cell2 = row.insertCell(1);
-                //cell2.innerHTML = techStackList[1];
+                j++;
+            }}
 
+        var j = 0;
+        for (i = 0; i < Math.ceil(techStackList["Client-Side"].length / 2); i++) {
+            var row = document.querySelector("#client-tech-stack-table").insertRow();
+            for (k = 0; k < 2; k++) {
+                var cell1 = row.insertCell(k);
+                if (typeof techStackList["Client-Side"][j] == "undefined") {
+                    cell1.innerHTML = ''
+                } else {
+                    cell1.innerHTML = techStackList["Client-Side"][j];
+                }
+                j++;
             }
+            // var cell2 = row.insertCell(1);
+            // cell2.innerHTML = techStackList[1];
 
-
-            for (i = 0; i < (data["techstack"]["Server-Side"]).length; i++) {
-                console.log(data["techstack"]["Server-Side"][i])
-                document.querySelector(".server-side-tech-wrapper").innerHTML += `<p>${data["techstack"]["Server-Side"][i]}</p>`
-            }
-
-            for (i = 0; i < (data["techstack"]["Client-Side"]).length; i++) {
-                console.log(data["techstack"]["Client-Side"][i]);
-                document.querySelector(".client-side-tech-wrapper").innerHTML += `<p>${data["techstack"]["Client-Side"][i]}</p>`
-            }
-            // renderUrls(data)
-            // console.log(data['packets'])
-
+        }
         })
     </script>
 
