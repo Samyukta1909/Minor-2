@@ -2,7 +2,8 @@ import dns.resolver
 recordList=[]
 recordList1=[] 
 def record(domainname):
-        
+    try:
+        dns.resolver.resolve(domainname, 'NS')
         # recordList.append("A Records:")
         try:
             a_name=dns.resolver.resolve(domainname,'A')
@@ -27,6 +28,10 @@ def record(domainname):
             pass
             d="No record found"
             recordList1.append(d)
-  
-       
-        return recordList,recordList1
+    
+    except dns.resolver.NXDOMAIN:
+        d="UNREGISTERED URL"
+        recordList.append(d)
+        recordList1.append(d)
+    
+    return recordList,recordList1
