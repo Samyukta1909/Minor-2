@@ -34,22 +34,19 @@ def index():
         target = request.form.get("urlvalue")
         print("Target: ",target)  
 
-        # domainFile =WHOis(target)
-        # recordFile,recordFile1=record(target)
+        domainFile =WHOis(target)
+        recordFile,recordFile1=record(target)
 
-        # techStackFunc(target)
+       
 
         threading.Thread(target=headlines).start()
         threading.Thread(target=techStackFunc,args=(target,)).start()
-        # threading.Thread(target=hiddenFiles,args=(target,)).start()
-        # threading.Thread(target=endpoint,args=(target,)).start()
-        # threading.Thread(target=subdomain,args=(target,)).start()
-        # testfunc()
-
-
-        # return render_template('index.html', WHOis=domainFile,record=recordFile,name=recordFile1)
-        return render_template('index.html')
-        # return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1)
+        threading.Thread(target=hiddenFiles,args=(target,)).start()
+        threading.Thread(target=endpoint,args=(target,)).start()
+        threading.Thread(target=subdomain,args=(target,)).start()
+        
+        #return render_template('index.html')
+        return render_template('index.html',WHOis=domainFile,record=recordFile,name=recordFile1)
 
     else:
         threading.Thread(target=headlines).start()
