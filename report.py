@@ -78,21 +78,21 @@ def createreport():
     fpdf.ln(15)
     targetname(fpdf)
     fpdf.set_font('times','',12)
-    # fpdf.cell(0,10,'Target Name: ', align="C",ln=True)
    
-    # fpdf.cell(0,10,subdomainList[0], align="C", ln=True)
+   
+    
     arecord(fpdf)
     fpdf.set_font('times','',12)
-    # fpdf.cell(0,10,'A Records',align="C", ln=True)
+    
     fpdf.set_font('times','',12)
     for i in range(len(recordList)):
        
         fpdf.cell(0,10,recordList[i], ln=True)
-        # fpdf.cell(0,10,(recordList[i]).encode('utf-8'), ln=True)
+        
       
     crecord(fpdf)
     fpdf.set_font('times','',12)
-    # fpdf.cell(0,10,'C Name Records',align="C", ln=True)
+   
    
     for i in range(len(recordList1)):
        
@@ -100,14 +100,14 @@ def createreport():
     
     whoisinfo(fpdf)
     fpdf.set_font('times','',12)
-    # fpdf.cell(0,10,'WHOIS Information',align="C", ln=True)
+ 
    
     for i in range(len(domainList)):
         fpdf.multi_cell(0,10,domainList[i])
 
     subdomaintitle(fpdf)
     fpdf.set_font('times','',12)
-    # fpdf.cell(0,10,'Subdomains',align="C", ln=True)
+    
     
     for i in range(1,len(subdomainList)):
         fpdf.cell(0,10,subdomainList[i], ln=True)
@@ -115,14 +115,14 @@ def createreport():
     endpointtitle(fpdf)
     fpdf.set_font('times','',12)
    
-    # fpdf.cell(0,10,'Endpoints',align="C", ln=True)
+   
     
     for i in range(len(endpointsList)):
         fpdf.cell(0,10,endpointsList[i], ln=True)
 
     sensitivetitle(fpdf)
     fpdf.set_font('times','',12)
-    # fpdf.cell(0,10,'Sensitive Files',align="C", ln=True)
+    
     
     for i in range(len(hidFilesList)):
         fpdf.multi_cell(0,10,hidFilesList[i])
