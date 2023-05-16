@@ -67,9 +67,8 @@ def sensitivetitle(self):
 def createreport():
     print("record list: ",recordList)
     fpdf = FPDF()
-    
     fpdf=FPDF('P','mm','Letter')
-    
+
     fpdf.add_page()
     header(fpdf)
     

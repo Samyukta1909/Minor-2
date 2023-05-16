@@ -11,7 +11,9 @@ from news import headlines
 from techstack import techStackFunc
 from report import createreport
 from flask import send_file
+# import eventlet
 
+# eventlet.monkey_patch()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
@@ -101,11 +103,6 @@ def report():
     createreport()
     path = "myreport/EagleEyeReport.pdf"
     return send_file(path, as_attachment=True)
-   
-
-
-
-
 
 if __name__=="__main__":
     # app.run(debug=True)

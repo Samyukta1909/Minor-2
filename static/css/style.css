@@ -602,6 +602,10 @@ margin-left: 8%;
     transform: scaleX(1);
 }
 
+.report-class {
+    height: 100%;
+}
+
 .report button {
     width: 100px;
     height: 100%;
@@ -612,7 +616,7 @@ margin-left: 8%;
     border: 2px solid #f5ebca;
     outline: none;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: bold;
     border-radius: 10px;
     /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
