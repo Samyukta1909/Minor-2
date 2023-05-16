@@ -5,22 +5,16 @@ from subdomains import subdomain
 from endpoints import endpoint
 from domain import WHOis
 from records import record
-import json
 import json,threading
-from threading import active_count
 from flask_socketio import SocketIO
 from news import headlines
 from techstack import techStackFunc
-import multiprocessing,time
 from report import createreport
 from flask import send_file
-import requests
-from test import testfunc
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-stop_thread = threading.Event()
 
 
 @app.route('/', methods=["GET","POST"])
